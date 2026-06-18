@@ -78,7 +78,7 @@ Traditional platforms present a **"catch-22"** where entry-level talent needs ex
 
 ## Figma Design
 
-[https://www.figma.com/design/ScHK2SBde0vTjTiXaQuwgZ/SKILLBRIDGE?node-id=0-1&t=1amETQp0lGpk73UJ-1]
+[ https://www.figma.com/design/ScHK2SBde0vTjTiXaQuwgZ/SKILLBRIDGE?node-id=0-1&t=1amETQp0lGpk73UJ-1 ]
 
 ---
 
