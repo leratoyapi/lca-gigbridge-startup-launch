@@ -48,7 +48,7 @@ Traditional platforms present a **"catch-22"** where entry-level talent needs ex
 |------|----------------|------|
 | Lerato Yapi | @leratoyapi | Developer |
 | James Johnston | @james-johnston-49 | Developer |
-| Nonhlanhla Kunene | nonhlanhlakunene | Developer |
+| Nonhlanhla Kunene | @nonhlanhlakunene | Developer |
 | Muhammad Qasim | @MuhammadQasim2006 | Developer |
 | Nqenqa Anela | @nqenqaanela-beep | Developer |
 | Mbekeni Vuvu | @mbekenivuvu-droid | Developer |
@@ -147,10 +147,6 @@ Traditional platforms present a **"catch-22"** where entry-level talent needs ex
 
 
 
-
-
-
-
 ---
 ## GitHub Workflow
 
@@ -164,18 +160,14 @@ This project follows a collaborative Git workflow:
 
 
 ## Repository Structurure
-lca-gigbridge-startup-launch/
-├── index.html
-├── about.html
-├── services.html
-├── contact.html
-├── css/
-│ └── style.css
-├── js/
-│ └── main.js
-├── images/
-│ └── ...
-└── README.md
+
+main
+  - james-dev
+  - nonhlanhla-dev
+  - qassim-dev
+  - nqenqa-dev
+  - mbekeni-dev
+  - lerato-dev
 
 ### Workflow Steps
 
@@ -189,6 +181,7 @@ lca-gigbridge-startup-launch/
 | `nqenqa-dev` | Nqenqa's development branch |
 | `mbekeni-dev` | Mbekeni's development branch |
 | `nonhlanhla-dev` | Nonhlanhla's development branch |
+| `lerato-dev` | Lerato's development branch |
 
 ### Workflow Rules
 
