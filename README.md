@@ -48,6 +48,7 @@ Traditional platforms present a **"catch-22"** where entry-level talent needs ex
 |------|----------------|------|
 | Lerato Yapi | @leratoyapi | Developer |
 | James Johnston | @james-johnston-49 | Developer |
+| Nonhlanhla Kunene | nonhlanhlakunene | Developer |
 | Muhammad Qasim | @MuhammadQasim2006 | Developer |
 | Nqenqa Anela | @nqenqaanela-beep | Developer |
 | Mbekeni Vuvu | @mbekenivuvu-droid | Developer |
