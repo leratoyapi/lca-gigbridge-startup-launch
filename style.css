@@ -1,0 +1,255 @@
+/* GENERAL LAYOUT */
+html,
+body {
+  min-height: 100vh;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--bg-color);
+  font-family: "Poppins", sans-serif;
+
+  margin-top: -5px;
+  margin-left: 30px;
+  margin-right: 60px;
+
+  color: var(--text-color);
+
+  p {
+    color: var(--secondary-text);
+  }
+  
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 40px;
+  background-color: #09090f;
+  margin-left: -30px;
+  margin-right: -60px;
+  
+  .logo {
+    display: flex;
+    align-items: center;
+
+    color: #8888a8;
+  } 
+
+  .nav-btn {
+    margin-left: auto; /* pushes button to the far right */
+    background-color: #8b5cf6;
+    padding: 8px 15px;
+    border-radius: 10px;
+
+    transition: all 0.3s ease;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .theme-btn button {
+    background-color: transparent;
+    border: 2px solid #8b5cf6;
+    color: #8b5cf6;
+
+    padding: 80x 12px;
+    margin-left: 15px;
+
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+  }
+}
+
+.logo-img {
+    max-width: 350px;
+    max-height: auto;
+
+    margin-left: -8px;
+  }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    flex: 1; /* takes up remaining space */
+    justify-content: center;
+
+    a {
+        color: #8888a8;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+}
+
+/* Footer */ 
+footer {
+  background-color: var(--card-bg);
+  border-top: 1px solid #2a2a35;
+
+  /* canceling out the body margin, so that footer goes across whole page */
+  margin-left: -30px;
+  margin-right: -60px;
+  padding: 20px 60px 30px 30px;
+
+  /* pushing footer to bottom of screen */
+  margin-top: auto;
+  margin-top: 30px; /* extra spacing between footer and body elements */
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .contact {
+    flex: 1;
+  }
+
+  .footer-links {
+    flex: 1;
+    text-align: right;
+  }
+
+  .divider {
+    width: 1px;
+    margin: 0 50px;
+    align-self: stretch;
+  }
+
+  h3 {
+    color: #ece8e2;
+    margin-bottom: 15px;
+  }
+
+  p,
+  a {
+    color: #8888a8;
+    text-decoration: none;
+    margin: 8px 0;
+  }
+
+  .copyright {
+    border-top: 1px solid #2a2a35;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    color: #666;
+  }
+}
+
+/* General Layout - Animations */
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: white;
+}
+
+.nav-btn:hover {
+  background-color: #9f74ff;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+  transform: translateY(-2px);
+}
+
+.theme-btn button:hover {
+  background-color: #8b5cf6;
+  color: white;
+
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
+}
+
+/* Light Mode */
+
+:root {
+  --bg-color: #09090f;
+  --text-color: white;
+  --secondary-text: #8888a8;
+  --card-bg: #13131f;
+}
+
+[data-theme="light"] {
+  --bg-color: #f5f5f5;
+  --text-color: #111111;
+  --secondary-text: #555555;
+  --card-bg: #ffffff;
+}
+
+/* INDEX */
+
+.hero-text {
+  display: flex;
+  flex-direction: column; /* stacking vertically */
+  align-items: flex-start; /* aligning to left */
+
+  .hero-heading {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 4rem;
+    line-height: 1;
+    font-weight: 700;
+
+    .purple-text {
+      color: #8b5cf6;
+    }
+  }
+  
+
+  .hero-btn {
+    padding: 15px 25px;
+    border: 3px solid #8b5cf6;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;;
+
+    animation: pulseGlow 2s infinite;
+    transition: all 0.3s ease;;
+
+    a {
+      color: #8b5cf6;
+      text-decoration: none;
+
+      transition: color 0.7s ease;
+    }
+  }
+    
+}
+
+/* Index - Animations */
+
+.hero-btn:hover {
+  background-color: #8b5cf6;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
+  transform: translateY(-2px);
+}
+
+.hero-btn:hover a {
+  color: white;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.4);
+  }
+  
+  50% {
+    box-shadow:
+    0 0 15px rgba(139, 92, 246, 0.8),
+    0 0 30px rgba(139, 92, 246, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.4);
+  }
+}
