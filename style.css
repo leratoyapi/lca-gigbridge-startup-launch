@@ -6,6 +6,11 @@
   padding: 0 60px;
 }
 
+:root {
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Manrope", sans-serif;
+}
+
 html,
 body {
   min-height: 100vh;
@@ -16,7 +21,7 @@ body {
   flex-direction: column;
 
   background-color: var(--bg-color);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-body);
 
   margin: 0;
 
@@ -27,6 +32,10 @@ body p {
   color: var(--secondary-text);
 }
 
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
 /* Navbar */
 nav {
   display: flex;
@@ -34,7 +43,9 @@ nav {
   justify-content: space-between;
 
   padding: 15px 40px;
-  background-color: #09090f;
+  background-color: var(--card-bg);
+
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
 
   .logo {
     display: flex;
@@ -183,7 +194,7 @@ footer {
   --card-bg: #ffffff;
 }
 
-/* INDEX */
+/* INDEX PAGE */
 
 .hero-text {
   display: flex;
@@ -249,11 +260,6 @@ footer {
     box-shadow: 0 0 5px rgba(139, 92, 246, 0.4);
   }
 }
-/*hers*/
-
-/* =========================
-   COMPONENT SYSTEM (HER → CONVERTED)
-========================= */
 
 /* OPPORTUNITIES PAGE */
 
@@ -531,3 +537,8 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* COMMUNITY PAGE */
+
+
