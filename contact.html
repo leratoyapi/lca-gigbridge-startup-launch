@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigBridge| Register Interest</title>
+    <link rel="stylesheet" href="css/style.css">
+
+  <style>
+   .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+     <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Gig<span>Bridge</span></a>
+            <div class="nav-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Marketplace</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link active">Join Us</a></li>
+                <li><button class="btn btn-neon" id="theme-toggle">Toggle Theme</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="max-width: 600px;">
+        <h1>Register Your Interest</h1>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Are you a startup client looking to hire, or a talent wishing to register? Fill out the structure below.</p>
+        
+<form id="registrationForm" class="contact-form" 
+      action="https://formspree.io/f/mvznepdb" method="POST" novalidate>
+  
+  <div class="form-group">
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your name" required>
+    <div class="error-message" id="nameError">Name field must contain at least 3 characters.</div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" class="form-control" placeholder="example@domain.co.za" required>
+    <div class="error-message" id="emailError">Please input a valid email address structure.</div>
+  </div>
+
+  <div class="form-group">
+    <label for="roleType">I am...</label>
+    <select id="roleType" name="roleType" class="form-control" required>
+      <option value="">Select your role</option>
+      <option value="student">Student</option>
+      <option value="graduate">Recent Graduate (0-3yrs)</option>
+      <option value="professional">Young Professional</option>
+      <option value="client">Client/Employer</option>
+    </select>
+  </div>
+
+ <!-- Skills group (for students, graduates, professionals only) -->
+ <div class="form-group" id="skillsGroup">
+   <label for="skills">Top Skills</label>
+   <input type="text" id="skills" name="skills" class="form-control" placeholder="e.g. React, Figma, Copywriting">
+ </div>
+
+<!-- Optional field -->
+ <div class="form-group" id="optionalGroup">
+   <label for="optional">Anything else? (optional)</label>
+   <input type="text" id="optional" name="optional" class="form-control" placeholder="Tell us about yourself or the type of work you're looking for...">
+ </div>
+
+<!-- Extra section for clients only -->
+ <div class="form-group hidden" id="clientJobGroup">
+   <label for="jobDescription">Job Description</label>
+   <textarea id="jobDescription" name="jobDescription" class="form-control" placeholder="Describe the role or project you’re hiring for..."></textarea>
+ </div>
+
+ <div class="form-group hidden" id="clientBudgetGroup">
+   <label for="budget">Budget</label>
+   <input type="number" id="budget" name="budget" class="form-control" placeholder="Enter your budget (e.g. 500)">
+ </div>
+
+
+  <button type="submit" class="btn btn-neon" style="width: 100%;">Submit Application</button>
+</form>
+        <div id="formFeedback" style="margin-top: 1.5rem; font-weight: bold; text-align: center;"></div>
+    </main>
+
+<footer class="footer">
+        <p>&copy; 2026 GigBridge Startup Concept. Built for the HTML, CSS & JS Showcase Challenge.</p>
+</footer>
+
+<script>
+  const roleSelect = document.getElementById("roleType");
+  const skillsGroup = document.getElementById("skillsGroup");
+  const optionalInput = document.getElementById("optional");
+  const clientJobGroup = document.getElementById("clientJobGroup");
+  const clientBudgetGroup = document.getElementById("clientBudgetGroup");
+  const submitButton = document.querySelector("button");
+
+  roleSelect.addEventListener("change", function() {
+    if (this.value === "client") {
+      // Hide skills
+      skillsGroup.classList.add("hidden");
+      // Change optional placeholder
+      optionalInput.placeholder = "Company name or hiring preferences...";
+      // Show client-specific fields
+      clientJobGroup.classList.remove("hidden");
+      clientBudgetGroup.classList.remove("hidden");
+      // Change button text
+      submitButton.textContent = "Post Job";
+    } else {
+      // Show skills again
+      skillsGroup.classList.remove("hidden");
+      // Reset optional placeholder
+      optionalInput.placeholder = "Tell us about yourself or the type of work you're looking for...";
+      // Hide client-specific fields
+      clientJobGroup.classList.add("hidden");
+      clientBudgetGroup.classList.add("hidden");
+      // Reset button text
+      submitButton.textContent = "Submit Application";
+    }
+  });
+</script>
+
+</body>
+</html>
