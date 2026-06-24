@@ -1,15 +1,28 @@
-/* GENERAL LAYOUT */
-
-/* Global Wrapper */
-.page-wrapper {
-  flex: 1;
-  padding: 0 60px;
-}
+/* ============================================================
+   ROOT & VARIABLES
+   ============================================================ */
 
 :root {
   --font-body: "Inter", sans-serif;
   --font-heading: "Manrope", sans-serif;
+
+  --bg-color: #09090f;
+  --text-color: white;
+  --secondary-text: #8888a8;
+  --card-bg: #1a1a26;
 }
+
+[data-theme="light"] {
+  --bg-color: #f5f5f5;
+  --text-color: #111111;
+  --secondary-text: #555555;
+  --card-bg: #ffffff;
+}
+
+
+/* ============================================================
+   GLOBAL RESETS & BASE
+   ============================================================ */
 
 html,
 body {
@@ -22,10 +35,8 @@ body {
 
   background-color: var(--bg-color);
   font-family: var(--font-body);
-
-  margin: 0;
-
   color: var(--text-color);
+  margin: 0;
 }
 
 body p {
@@ -36,7 +47,25 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
 }
 
-/* Navbar */
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+.page-wrapper {
+  flex: 1;
+  padding: 0 60px;
+}
+
+.purple-text {
+  color: #8b5cf6;
+}
+
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
 nav {
   display: flex;
   align-items: center;
@@ -44,22 +73,19 @@ nav {
 
   padding: 15px 40px;
   background-color: var(--card-bg);
-
   border-bottom: 1px solid rgba(139, 92, 246, 0.15);
 
   .logo {
     display: flex;
     align-items: center;
-
     color: #8888a8;
   }
 
   .nav-btn {
-    margin-left: auto; /* pushes button to the far right */
+    margin-left: auto;
     background-color: #8b5cf6;
     padding: 8px 15px;
     border-radius: 10px;
-
     transition: all 0.3s ease;
 
     a {
@@ -73,20 +99,18 @@ nav {
     border: 2px solid #8b5cf6;
     color: #8b5cf6;
 
-    padding: 80x 12px;
+    padding: 8px 12px;
     margin-left: 15px;
 
     border-radius: 10px;
     cursor: pointer;
-
     transition: all 0.3s ease;
   }
 }
 
 .logo-img {
   max-width: 350px;
-  max-height: auto;
-
+  height: auto;
   margin-left: -8px;
 }
 
@@ -95,7 +119,7 @@ nav {
   align-items: center;
   gap: 20px;
 
-  flex: 1; /* takes up remaining space */
+  flex: 1;
   justify-content: center;
 
   a {
@@ -105,16 +129,34 @@ nav {
   }
 }
 
-/* Footer */
+.nav-links a:hover,
+.nav-links a.active {
+  color: white;
+}
+
+.nav-btn:hover {
+  background-color: #9f74ff;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+  transform: translateY(-2px);
+}
+
+.theme-btn button:hover {
+  background-color: #8b5cf6;
+  color: white;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
 footer {
   background-color: var(--card-bg);
   border-top: 1px solid #2a2a35;
 
   padding: 20px 60px 30px 30px;
-
-  /* pushing footer to bottom of screen */
-  margin-top: auto;
-  margin-top: 30px; /* extra spacing between footer and body elements */
+  margin-top: 30px;
 
   .footer-top {
     display: flex;
@@ -158,60 +200,55 @@ footer {
   }
 }
 
-/* General Layout - Animations */
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: white;
+/* ============================================================
+   ANIMATIONS / KEYFRAMES
+   ============================================================ */
+
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 5px rgba(139, 92, 246, 0.4); }
+  50%  { box-shadow: 0 0 15px rgba(139, 92, 246, 0.8), 0 0 30px rgba(139, 92, 246, 0.5); }
+  100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.4); }
 }
 
-.nav-btn:hover {
-  background-color: #9f74ff;
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
-  transform: translateY(-2px);
+
+/* ============================================================
+   INDEX PAGE — HERO
+   ============================================================ */
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 0;
+  flex-direction: row-reverse;
 }
 
-.theme-btn button:hover {
-  background-color: #8b5cf6;
-  color: white;
-
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
+.hero-image {
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
-/* Light Mode */
-
-:root {
-  --bg-color: #09090f;
-  --text-color: white;
-  --secondary-text: #8888a8;
-  --card-bg: #1a1a26;
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
-[data-theme="light"] {
-  --bg-color: #f5f5f5;
-  --text-color: #111111;
-  --secondary-text: #555555;
-  --card-bg: #ffffff;
-}
-
-/* INDEX PAGE */
 
 .hero-text {
   display: flex;
-  flex-direction: column; /* stacking vertically */
-  align-items: flex-start; /* aligning to left */
+  flex-direction: column;
+  align-items: flex-start;
 
   .hero-heading {
     display: flex;
     flex-direction: column;
-
     font-size: 4rem;
     line-height: 1;
     font-weight: 700;
-
-    .purple-text {
-      color: #8b5cf6;
-    }
   }
 
   .hero-btn {
@@ -227,13 +264,10 @@ footer {
     a {
       color: #8b5cf6;
       text-decoration: none;
-
       transition: color 0.7s ease;
     }
   }
 }
-
-/* Index - Animations */
 
 .hero-btn:hover {
   background-color: #8b5cf6;
@@ -245,28 +279,73 @@ footer {
   color: white;
 }
 
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 5px rgba(139, 92, 246, 0.4);
-  }
 
-  50% {
-    box-shadow:
-      0 0 15px rgba(139, 92, 246, 0.8),
-      0 0 30px rgba(139, 92, 246, 0.5);
-  }
+/* ============================================================
+   INDEX PAGE — CAROUSEL
+   ============================================================ */
 
-  100% {
-    box-shadow: 0 0 5px rgba(139, 92, 246, 0.4);
-  }
+.carousel-section {
+  padding: 40px 0 60px;
+  overflow: hidden;
 }
 
-/* OPPORTUNITIES PAGE */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 60px;
+}
 
-/* Banner */
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex: 1;
+}
+
+.carousel-track .opportunity-card {
+  min-width: 260px;
+  flex-shrink: 0;
+  border-left: 6px solid transparent;
+}
+
+.carousel-track .opportunity-card:hover {
+  border-left-color: #8b5cf6;
+}
+
+.carousel-control {
+  background: transparent;
+  border: 2px solid #8b5cf6;
+  color: #8b5cf6;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  font-size: 1.4rem;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-control:hover {
+  background-color: #8b5cf6;
+  color: white;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+}
+
+
+/* ============================================================
+   OPPORTUNITIES PAGE — BANNER & FILTER
+   ============================================================ */
+
 .explore-banner {
   padding: 20px 4% 15px;
   border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  margin-left: -20px;
 }
 
 .explore-banner h1 {
@@ -278,17 +357,6 @@ footer {
   line-height: 1.1;
 }
 
-.explore-banner .purple-text {
-  color: #8b5cf6;
-}
-
-/* Filter */
-.filter-icon img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
 .filter-section {
   display: flex;
   align-items: center;
@@ -296,13 +364,13 @@ footer {
   gap: 20px;
 
   padding: 10px 4% 20px;
+  margin-left: -20px;
 }
 
 .filter-buttons {
   display: flex;
   align-items: center;
   gap: 12px;
-
   overflow-x: auto;
 }
 
@@ -323,7 +391,6 @@ footer {
 .filter-btn.active {
   background-color: #8b5cf6;
   color: white;
-
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
 }
 
@@ -332,19 +399,23 @@ footer {
   color: white;
 }
 
+.filter-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
 .filter-img {
   width: 62px;
   height: 62px;
-
-  flex-shrink: 0; /* preventing icon from shrinking */
+  flex-shrink: 0;
 }
 
-.explore-banner,
-.filter-section {
-  margin-left: -20px;
-}
 
-/* Search bar */
+/* ============================================================
+   OPPORTUNITIES PAGE — SEARCH
+   ============================================================ */
+
 .search-row {
   max-width: none;
   margin: 0 auto;
@@ -355,7 +426,6 @@ footer {
 
 .search-container {
   width: 320px;
-
   display: flex;
   align-items: center;
   gap: 8px;
@@ -363,7 +433,6 @@ footer {
 
 .search-container input {
   width: 100%;
-
   padding: 12px 16px;
 
   border: 1px solid rgba(139, 92, 246, 0.3);
@@ -381,34 +450,31 @@ footer {
 
 .search-container input:focus {
   border-color: #8b5cf6;
-  box-shadow:
-    0 0 10px rgba(139, 92, 246, 0.4),
-    0 0 20px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.4), 0 0 20px rgba(139, 92, 246, 0.2);
 }
 
 .search-img {
   width: 32px;
   height: 32px;
-
   border-radius: 50%;
-
-  flex-shrink: 0; /* preventing icon from shrinking */
+  flex-shrink: 0;
 }
 
-/* GRID */
+
+/* ============================================================
+   OPPORTUNITIES PAGE — CARDS GRID
+   ============================================================ */
+
 .cards-grid {
   max-width: 1300px;
-  margin: 0 auto 60px auto;
+  margin: 30px auto 60px;
   padding: 0 6%;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-
-  margin-top: 30px;
 }
 
-/* CARD */
 .opportunity-card {
   background-color: var(--card-bg);
   border: 1px solid rgba(139, 92, 246, 0.18);
@@ -431,7 +497,6 @@ footer {
   box-shadow: 0 0 25px rgba(139, 92, 246, 0.25);
 }
 
-/* CARD TEXT */
 .card-header-main {
   display: flex;
   align-items: center;
@@ -449,7 +514,7 @@ footer {
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
-  transition: color 0.3 ease;
+  transition: color 0.3s ease;
 }
 
 .opportunity-card:hover .card-title,
@@ -464,22 +529,18 @@ footer {
   margin: 0 0 16px 0;
 }
 
-/* EXPANDABLE DETAILS */
+/* Expandable details */
+
 .extended-details {
   max-height: 0;
   overflow: hidden;
-
-  transition:
-    max-height 0.3s ease,
-    margin-top 0.3s ease;
+  transition: max-height 0.3s ease, margin-top 0.3s ease;
 }
 
 .extended-details.open {
   max-height: 250px;
-
   margin-top: 10px;
   padding-top: 12px;
-
   border-top: 1px dashed rgba(139, 92, 246, 0.2);
 }
 
@@ -498,13 +559,14 @@ footer {
   color: var(--secondary-text);
 }
 
-/* BUTTON */
+/* Show more button */
+
 .show-more-btn {
   border-top: 1px solid #2a2a35;
-  border-radius: 0;
   border-left: none;
   border-right: none;
   border-bottom: none;
+  border-radius: 0;
 
   padding-top: 14px;
   margin-top: 4px;
@@ -525,7 +587,442 @@ footer {
   color: #8b5cf6;
 }
 
-/* RESPONSIVE */
+
+/* ============================================================
+   COMMUNITY PAGE — HERO
+   ============================================================ */
+
+.community-hero {
+  padding: 64px 60px 52px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.12);
+}
+
+.community-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.community-hero p {
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0;
+}
+
+
+/* ============================================================
+   COMMUNITY PAGE — LAYOUT
+   ============================================================ */
+
+.community-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 240px;
+  align-items: start;
+}
+
+.categories-sidebar {
+  padding: 28px 20px 28px 60px;
+  border-right: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.discussions-feed {
+  padding: 28px 32px;
+  border-right: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.right-sidebar {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-heading {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary-text);
+}
+
+
+/* ============================================================
+   COMMUNITY PAGE — CATEGORIES SIDEBAR
+   ============================================================ */
+
+.category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.category-list li {
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: var(--secondary-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-list li:hover {
+  background-color: rgba(139, 92, 246, 0.08);
+  color: var(--text-color);
+}
+
+.category-list li:active {
+  background-color: rgba(139, 92, 246, 0.12);
+  color: #a78bfa;
+  font-weight: 500;
+}
+
+.cat-count {
+  font-size: 0.75rem;
+  color: var(--secondary-text);
+  opacity: 0.7;
+}
+
+
+/* ============================================================
+   COMMUNITY PAGE — FEED
+   ============================================================ */
+
+.feed-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.feed-toolbar h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.feed-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-select {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--secondary-text);
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.sort-select:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  color: var(--text-color);
+}
+
+.new-post-btn {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.new-post-btn:hover {
+  background-color: #9f74ff;
+  box-shadow: 0 0 14px rgba(139, 92, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+.post-card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.post-card:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(139, 92, 246, 0.12);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.post-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.tag-student  { background-color: rgba(99, 153, 34, 0.12);   color: #7fb938; }
+.tag-success  { background-color: rgba(29, 158, 117, 0.12);  color: #1daa7a; }
+.tag-announce { background-color: rgba(186, 117, 23, 0.12);  color: #d4890f; }
+.tag-tips     { background-color: rgba(212, 83, 126, 0.12);  color: #e0698f; }
+.tag-general  { background-color: rgba(139, 92, 246, 0.12);  color: #a78bfa; }
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(139, 92, 246, 0.18);
+  color: #a78bfa;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-info {
+  font-size: 0.8rem;
+  color: var(--secondary-text);
+}
+
+.post-card h4 {
+  font-size: 0.97rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.post-card:hover h4 {
+  color: #a78bfa;
+}
+
+.post-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.post-action {
+  font-size: 0.8rem;
+  color: var(--secondary-text);
+  transition: color 0.2s ease;
+}
+
+.post-action:hover {
+  color: var(--text-color);
+}
+
+.load-more-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  background: transparent;
+  border: 1px dashed rgba(139, 92, 246, 0.25);
+  border-radius: 10px;
+  color: var(--secondary-text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.load-more-btn:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  color: #a78bfa;
+  background-color: rgba(139, 92, 246, 0.05);
+}
+
+
+/* ============================================================
+   COMMUNITY PAGE — RIGHT SIDEBAR WIDGETS
+   ============================================================ */
+
+.sidebar-widget {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.trending-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.trend-tag {
+  font-size: 0.75rem;
+  padding: 5px 11px;
+  background-color: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  border-radius: 20px;
+  color: #a78bfa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trend-tag:hover {
+  background-color: rgba(139, 92, 246, 0.18);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.popular-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.popular-list li {
+  padding: 8px 0;
+  font-size: 0.83rem;
+  color: var(--secondary-text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: flex;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.popular-list li:last-child {
+  border-bottom: none;
+}
+
+.popular-list li:hover {
+  color: var(--text-color);
+}
+
+.popular-list li::before {
+  content: "→";
+  color: rgba(139, 92, 246, 0.5);
+  flex-shrink: 0;
+}
+
+.member-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.member-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.member-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.member-name {
+  font-size: 0.83rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.member-status {
+  font-size: 0.72rem;
+  color: #22c55e;
+}
+
+.more-online {
+  font-size: 0.78rem;
+  color: var(--secondary-text);
+  margin: 4px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* ============================================================
+   COMMUNITY PAGE — CTA BANNER
+   ============================================================ */
+
+.community-cta {
+  margin: 60px;
+  background-color: rgba(139, 92, 246, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 16px;
+  padding: 48px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cta-text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.cta-text p {
+  margin: 0;
+}
+
+.cta-btn {
+  background-color: #8b5cf6;
+  color: white;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.cta-btn:hover {
+  background-color: #9f74ff;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
 @media (max-width: 1024px) {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -536,9 +1033,17 @@ footer {
   .cards-grid {
     grid-template-columns: 1fr;
   }
+
+  .hero-section {
+    flex-direction: column;
+    padding: 40px 0;
+  }
+
+  .carousel-wrapper {
+    padding: 0 20px;
+  }
+
+  .carousel-track .opportunity-card {
+    min-width: 220px;
+  }
 }
-
-
-/* COMMUNITY PAGE */
-
-
