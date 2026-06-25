@@ -1,0 +1,595 @@
+/* the updated code  */
+/  ============================================================
+   ABOUT PAGE (OPTIMIZED)
+   ============================================================ */
+
+/* Main Container */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px;
+}
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+
+.container h1,
+.container h2 {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.container h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+}
+
+.container h2 {
+    font-size: 2.3rem;
+}
+
+.container p {
+    line-height: 1.8;
+    color: var(--secondary-text);
+}
+
+/* ============================================================
+   TEAM SECTION
+   ============================================================ */
+
+.carousel-container {
+    margin-top: 35px;
+    overflow: hidden;
+    /* FIX #5: Add will-change hint for better performance */
+    will-change: scroll-position;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar */
+.carousel-track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+    background: #8B5CF6;
+    border-radius: 20px;
+}
+
+/* Team Cards */
+.team-card {
+    min-width: 280px;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(139,92,246,0.18);
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    /* FIX #6: Optimize hover performance with will-change */
+    will-change: transform;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    border-color: #8B5CF6;
+    /* FIX #6: Use simpler shadow to reduce computation */
+    box-shadow: 0 0 15px rgba(139,92,246,0.25);
+}
+
+/* Avatar */
+.avatar-placeholder {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139,92,246,0.15);
+    border: 2px solid #8B5CF6;
+    color: #A78BFA;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Team Name */
+.team-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+/* Role Badge */
+.team-role {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #A78BFA;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Bio */
+.team-bio {
+    font-size: 0.9rem;
+    min-height: 90px;
+}
+
+/* LinkedIn */
+.team-role a {
+    color: #8B5CF6;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.team-role a:hover {
+    color: white;
+}
+
+/* Carousel Hint */
+.carousel-hint {
+    display: block;
+    margin-top: 15px;
+    color: var(--secondary-text);
+    text-align: center;
+}
+
+/* ============================================================
+   FAQ ACCORDION (OPTIMIZED)
+   ============================================================ */
+
+.accordion-item {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(139,92,246,0.15);
+    border-radius: 14px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.accordion-item:hover {
+    border-color: #8B5CF6;
+}
+
+/* Question Button */
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.accordion-header span {
+    font-size: 1.5rem;
+    color: #8B5CF6;
+}
+
+/* Answer */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 25px;
+}
+
+.accordion-content.active {
+    max-height: 500px; /* FIX: Set a reasonable max-height for active state */
+}
+
+.accordion-content p {
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media(max-width:768px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .container h1 {
+        font-size: 2.5rem;
+    }
+
+    .container h2 {
+        font-size: 1.8rem;
+    }
+
+    .team-card {
+        min-width: 240px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* the original code  */
+
+/* /* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+
+/* Main Container */
+/* .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px;
+}
+
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+
+/* .container h1,
+.container h2 {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.container h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+}
+
+.container h2 {
+    font-size: 2.3rem;
+}
+
+.container p {
+    line-height: 1.8;
+    color: var(--secondary-text);
+} */
+
+
+/* ============================================================
+   TEAM SECTION
+   ============================================================ */
+
+/* .carousel-container {
+    margin-top: 35px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+
+    scroll-behavior: smooth;
+} */
+
+
+/* Hide scrollbar */
+/* .carousel-track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+    background: #8b5cf6;
+    border-radius: 20px;
+}
+ */
+
+/* Team Cards */
+
+/* .team-card {
+
+    min-width: 280px;
+
+    background-color: var(--card-bg);
+
+    border: 1px solid rgba(139,92,246,0.18);
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.team-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+    0 0 20px rgba(139,92,246,0.3);
+
+} */
+
+
+
+/* Avatar */
+
+/* .avatar-placeholder {
+
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+
+    background:
+    rgba(139,92,246,0.15);
+
+
+    border:2px solid #8b5cf6;
+
+
+    color:#a78bfa;
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+} */
+
+
+/* Team Name */
+
+/* .team-card h3 {
+
+    font-size:1.25rem;
+
+    margin-bottom:12px;
+
+}
+ */
+
+
+/* Role Badge */
+
+/* .team-role {
+
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    color:#a78bfa;
+
+    font-size:0.8rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase; */
+
+}
+
+
+/* Bio */
+
+/* .team-bio {
+
+    font-size:0.9rem;
+
+    min-height:90px;
+
+} */
+
+
+
+/* LinkedIn */
+
+/* .team-role a {
+
+    color:#8b5cf6;
+
+    text-decoration:none;
+
+    transition:0.3s ease;
+
+}
+
+
+.team-role a:hover {
+
+    color:white;
+
+} */
+
+
+
+/* Carousel Hint */
+
+/* .carousel-hint {
+
+    display:block;
+
+    margin-top:15px;
+
+    color:var(--secondary-text);
+
+    text-align:center;
+
+} */
+
+
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+
+
+/* .accordion-item {
+
+    background-color:var(--card-bg);
+
+    border:1px solid rgba(139,92,246,0.15);
+
+    border-radius:14px;
+
+    margin-bottom:15px;
+
+    overflow:hidden;
+
+    transition:0.3s ease;
+
+}
+
+
+
+.accordion-item:hover {
+
+    border-color:#8b5cf6;
+
+} */
+
+
+
+/* Question Button */
+
+/* .accordion-header {
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:20px 25px;
+
+
+    background:transparent;
+
+    border:none;
+
+
+    color:var(--text-color);
+
+    font-family:var(--font-body);
+
+    font-size:1rem;
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
+}
+
+
+
+.accordion-header span {
+
+    font-size:1.5rem;
+
+    color:#8b5cf6;
+
+} */
+
+
+
+/* Answer */
+
+/* .accordion-content {
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height 0.4s ease;
+
+    padding:0 25px;
+
+}
+
+
+
+.accordion-content p {
+
+    padding-bottom:20px;
+
+    margin:0;
+
+} */
+
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+
+/* @media(max-width:768px){
+
+
+.container {
+
+    padding:30px 20px;
+
+}
+
+
+.container h1 {
+
+    font-size:2.5rem;
+
+}
+
+
+.container h2 {
+
+    font-size:1.8rem;
+
+}
+
+
+.team-card {
+
+    min-width:240px;
+
+}
+
+
+} */ */ */
