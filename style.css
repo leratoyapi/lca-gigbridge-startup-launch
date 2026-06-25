@@ -1,6 +1,4 @@
-/* ============================================================
-   ROOT & VARIABLES
-   ============================================================ */
+/* === ROOT & VARIABLES === */
 
 :root {
   --font-body: "Inter", sans-serif;
@@ -19,10 +17,7 @@
   --card-bg: #ffffff;
 }
 
-
-/* ============================================================
-   GLOBAL RESETS & BASE
-   ============================================================ */
+/* === GLOBAL LAYOUT === */
 
 html,
 body {
@@ -43,14 +38,16 @@ body p {
   color: var(--secondary-text);
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
+.hidden {
+  display: none;
 }
 
-
-/* ============================================================
-   LAYOUT UTILITIES
-   ============================================================ */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
 
 .page-wrapper {
   flex: 1;
@@ -61,10 +58,7 @@ h1, h2, h3, h4 {
   color: #8b5cf6;
 }
 
-
-/* ============================================================
-   NAVBAR
-   ============================================================ */
+/* === NAVBAR === */
 
 nav {
   display: flex;
@@ -146,10 +140,7 @@ nav {
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
 }
 
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* === FOOTER === */
 
 footer {
   background-color: var(--card-bg);
@@ -200,21 +191,23 @@ footer {
   }
 }
 
-
-/* ============================================================
-   ANIMATIONS / KEYFRAMES
-   ============================================================ */
+/* === ANIMATIONS === */
 
 @keyframes pulseGlow {
-  0%   { box-shadow: 0 0 5px rgba(139, 92, 246, 0.4); }
-  50%  { box-shadow: 0 0 15px rgba(139, 92, 246, 0.8), 0 0 30px rgba(139, 92, 246, 0.5); }
-  100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.4); }
+  0% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 15px rgba(139, 92, 246, 0.8),
+      0 0 30px rgba(139, 92, 246, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.4);
+  }
 }
 
-
-/* ============================================================
-   INDEX PAGE — HERO
-   ============================================================ */
+/* === INDEX PAGE — HERO === */
 
 .hero-section {
   display: flex;
@@ -279,10 +272,7 @@ footer {
   color: white;
 }
 
-
-/* ============================================================
-   INDEX PAGE — CAROUSEL
-   ============================================================ */
+/* === INDEX PAGE — CAROUSEL === */
 
 .carousel-section {
   padding: 40px 0 60px;
@@ -337,10 +327,7 @@ footer {
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
 }
 
-
-/* ============================================================
-   OPPORTUNITIES PAGE — BANNER & FILTER
-   ============================================================ */
+/* === OPPORTUNITIES PAGE — BANNER & FILTER === */
 
 .explore-banner {
   padding: 20px 4% 15px;
@@ -411,10 +398,7 @@ footer {
   flex-shrink: 0;
 }
 
-
-/* ============================================================
-   OPPORTUNITIES PAGE — SEARCH
-   ============================================================ */
+/* === OPPORTUNITIES PAGE — SEARCHBAR === */
 
 .search-row {
   max-width: none;
@@ -450,7 +434,9 @@ footer {
 
 .search-container input:focus {
   border-color: #8b5cf6;
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.4), 0 0 20px rgba(139, 92, 246, 0.2);
+  box-shadow:
+    0 0 10px rgba(139, 92, 246, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.2);
 }
 
 .search-img {
@@ -460,10 +446,7 @@ footer {
   flex-shrink: 0;
 }
 
-
-/* ============================================================
-   OPPORTUNITIES PAGE — CARDS GRID
-   ============================================================ */
+/* === OPPORTUNITIES PAGE — CARDS GRID === */
 
 .cards-grid {
   max-width: 1300px;
@@ -534,7 +517,9 @@ footer {
 .extended-details {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, margin-top 0.3s ease;
+  transition:
+    max-height 0.3s ease,
+    margin-top 0.3s ease;
 }
 
 .extended-details.open {
@@ -587,10 +572,7 @@ footer {
   color: #8b5cf6;
 }
 
-
-/* ============================================================
-   COMMUNITY PAGE — HERO
-   ============================================================ */
+/* === COMMUNITY PAGE — HERO === */
 
 .community-hero {
   padding: 64px 60px 52px;
@@ -610,10 +592,7 @@ footer {
   margin: 0;
 }
 
-
-/* ============================================================
-   COMMUNITY PAGE — LAYOUT
-   ============================================================ */
+/* === COMMUNITY PAGE — LAYOUT === */
 
 .community-layout {
   display: grid;
@@ -646,10 +625,7 @@ footer {
   color: var(--secondary-text);
 }
 
-
-/* ============================================================
-   COMMUNITY PAGE — CATEGORIES SIDEBAR
-   ============================================================ */
+/* === COMMUNITY PAGE — CATEGORIES SIDEBAR === */
 
 .category-list {
   list-style: none;
@@ -688,10 +664,7 @@ footer {
   opacity: 0.7;
 }
 
-
-/* ============================================================
-   COMMUNITY PAGE — FEED
-   ============================================================ */
+/* === COMMUNITY PAGE — FEED === */
 
 .feed-toolbar {
   display: flex;
@@ -781,11 +754,26 @@ footer {
   border-radius: 20px;
 }
 
-.tag-student  { background-color: rgba(99, 153, 34, 0.12);   color: #7fb938; }
-.tag-success  { background-color: rgba(29, 158, 117, 0.12);  color: #1daa7a; }
-.tag-announce { background-color: rgba(186, 117, 23, 0.12);  color: #d4890f; }
-.tag-tips     { background-color: rgba(212, 83, 126, 0.12);  color: #e0698f; }
-.tag-general  { background-color: rgba(139, 92, 246, 0.12);  color: #a78bfa; }
+.tag-student {
+  background-color: rgba(99, 153, 34, 0.12);
+  color: #7fb938;
+}
+.tag-success {
+  background-color: rgba(29, 158, 117, 0.12);
+  color: #1daa7a;
+}
+.tag-announce {
+  background-color: rgba(186, 117, 23, 0.12);
+  color: #d4890f;
+}
+.tag-tips {
+  background-color: rgba(212, 83, 126, 0.12);
+  color: #e0698f;
+}
+.tag-general {
+  background-color: rgba(139, 92, 246, 0.12);
+  color: #a78bfa;
+}
 
 .post-author {
   display: flex;
@@ -859,10 +847,7 @@ footer {
   background-color: rgba(139, 92, 246, 0.05);
 }
 
-
-/* ============================================================
-   COMMUNITY PAGE — RIGHT SIDEBAR WIDGETS
-   ============================================================ */
+/* === COMMUNITY PAGE — RIGHT SIDEBAR === */
 
 .sidebar-widget {
   background-color: var(--card-bg);
@@ -972,10 +957,7 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-
-/* ============================================================
-   COMMUNITY PAGE — CTA BANNER
-   ============================================================ */
+/* === COMMUNITY PAGE — CTA BANNER === */
 
 .community-cta {
   margin: 60px;
@@ -1018,10 +1000,7 @@ footer {
   transform: translateY(-2px);
 }
 
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* === RESPONSIVE === */
 
 @media (max-width: 1024px) {
   .cards-grid {
@@ -1046,4 +1025,130 @@ footer {
   .carousel-track .opportunity-card {
     min-width: 220px;
   }
+}
+
+/* === LIGHT MODE OVERRIDES === */
+
+[data-theme="light"] {
+  /* Nav links */
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #111111;
+  }
+
+  /* Cards */
+  .card-body-text {
+    color: #444444;
+  }
+
+  .show-more-btn {
+    color: #111111;
+    border-top-color: #dddddd;
+  }
+
+  .show-more-btn:hover {
+    color: #8b5cf6;
+  }
+
+  /* Extended details border */
+  .extended-details.open {
+    border-top-color: rgba(139, 92, 246, 0.3);
+  }
+
+  /* Select dropdown options */
+  select.form-control option {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  /* Community page */
+  .post-card {
+    border-color: rgba(139, 92, 246, 0.15);
+  }
+
+  .popular-list li {
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .more-online {
+    border-top-color: rgba(0, 0, 0, 0.06);
+  }
+
+  /* Footer */
+  footer {
+    border-top-color: #dddddd;
+  }
+
+  footer .copyright {
+    border-top-color: #dddddd;
+  }
+
+  footer .divider {
+    background-color: #dddddd;
+  }
+
+  /* Community CTA */
+  .community-cta {
+    background-color: rgba(139, 92, 246, 0.04);
+  }
+}
+
+/* === LIGHT MODE (updated) === */
+
+[data-theme="light"] {
+  --bg-color: #f5f5f5;
+  --text-color: #111111;
+  --secondary-text: #555555;
+  --card-bg: #efefef;
+}
+
+nav {
+  background-color: #1a1a26;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+nav .logo,
+.nav-links a {
+  color: #8888a8;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: white;
+}
+
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-links a.active {
+  color: white;
+}
+
+footer {
+  background-color: #1a1a26;
+  border-top-color: #2a2a35;
+}
+
+footer .divider {
+  background-color: #2a2a35;
+}
+
+[data-theme="light"] .card-body-text {
+  color: #444444;
+}
+
+[data-theme="light"] .show-more-btn {
+  color: #111111;
+  border-top-color: #dddddd;
+}
+
+[data-theme="light"] .show-more-btn:hover {
+  color: #8b5cf6;
+}
+
+[data-theme="light"] .opportunity-card:hover {
+  border-left-color: #8b5cf6;
+}
+
+[data-theme="light"] .filter-btn:hover {
+  border-color: #111111;
+  color: #111111;
 }
