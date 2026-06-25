@@ -48,6 +48,7 @@ Traditional platforms present a **"catch-22"** where entry-level talent needs ex
 |------|----------------|------|
 | Lerato Yapi | @leratoyapi | Developer |
 | James Johnston | @james-johnston-49 | Developer |
+| Nonhlanhla Kunene | @nonhlanhlakunene | Developer |
 | Muhammad Qasim | @MuhammadQasim2006 | Developer |
 | Nqenqa Anela | @nqenqaanela-beep | Developer |
 | Mbekeni Vuvu | @mbekenivuvu-droid | Developer |
@@ -78,7 +79,7 @@ Traditional platforms present a **"catch-22"** where entry-level talent needs ex
 
 ## Figma Design
 
-[https://www.figma.com/design/ScHK2SBde0vTjTiXaQuwgZ/SKILLBRIDGE?node-id=0-1&t=1amETQp0lGpk73UJ-1]
+[ https://www.figma.com/design/ScHK2SBde0vTjTiXaQuwgZ/SKILLBRIDGE?node-id=0-1&t=1amETQp0lGpk73UJ-1 ]
 
 ---
 
@@ -139,16 +140,7 @@ Traditional platforms present a **"catch-22"** where entry-level talent needs ex
 - Arrays
 - Objects
 - User feedback messages
-- [Additional feature: e.g., Dark Mode Toggle /  FAQ Accordion]
-
----
-
-
-
-
-
-
-
+- Additional feature: e.g., Dark Mode Toggle /  FAQ Accordion
 
 
 ---
@@ -164,18 +156,14 @@ This project follows a collaborative Git workflow:
 
 
 ## Repository Structurure
-lca-gigbridge-startup-launch/
-├── index.html
-├── about.html
-├── services.html
-├── contact.html
-├── css/
-│ └── style.css
-├── js/
-│ └── main.js
-├── images/
-│ └── ...
-└── README.md
+
+main
+  - james-dev
+  - nonhlanhla-dev
+  - qassim-dev
+  - nqenqa-dev
+  - mbekeni-dev
+  - lerato-dev
 
 ### Workflow Steps
 
@@ -184,11 +172,12 @@ lca-gigbridge-startup-launch/
 | Branch | Purpose |
 |--------|---------|
 | `main` | Final, reviewed, and working code only |
-| `james-dev` | James's development branch |
-| `muhammad-dev` | Muhammad's development branch |
-| `nqenqa-dev` | Nqenqa's development branch |
-| `mbekeni-dev` | Mbekeni's development branch |
-| `nonhlanhla-dev` | Nonhlanhla's development branch |
+| `james-dev` | James's development branch - javascript,html,css |
+| `muhammad-dev` | Muhammad's development branch - javascript,html,css |
+| `nqenqa-dev` | Nqenqa's development branch -javascript,html,css |
+| `mbekeni-dev` | Mbekeni's development branch - javascript,html,css |
+| `nonhlanhla-dev` | Nonhlanhla's development branch - javascript,html,css |
+| `lerato-dev` | Lerato's development branch - javascript,html,css |
 
 ### Workflow Rules
 
