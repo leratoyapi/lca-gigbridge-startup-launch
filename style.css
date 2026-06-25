@@ -1152,3 +1152,277 @@ footer .divider {
   border-color: #111111;
   color: #111111;
 }
+
+/* RESPONSIVE ADDITIONS */
+
+/* --- Tablet landscape (≤1200px) --- */
+@media (max-width: 1200px) {
+  .page-wrapper {
+    padding: 0 32px;
+  }
+
+  .hero-section {
+    gap: 40px;
+  }
+
+  .hero-text .hero-heading {
+    font-size: 3.2rem;
+  }
+
+  .community-layout {
+    grid-template-columns: 190px 1fr 200px;
+  }
+}
+
+/* --- Tablet portrait (≤1024px) --- */
+/* cards-grid already handled — adding everything else */
+@media (max-width: 1024px) {
+  .page-wrapper {
+    padding: 0 24px;
+  }
+
+  .hero-text .hero-heading {
+    font-size: 2.8rem;
+  }
+
+  /* Community: collapse right sidebar below feed */
+  .community-layout {
+    grid-template-columns: 190px 1fr;
+  }
+
+  .right-sidebar {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 20px 32px;
+    border-top: 1px solid rgba(139, 92, 246, 0.1);
+    border-right: none;
+  }
+
+  .community-cta {
+    margin: 40px 24px;
+    padding: 36px 40px;
+  }
+
+  .explore-banner,
+  .filter-section {
+    margin-left: 0;
+    padding-left: 24px;
+  }
+}
+
+/* --- Mobile (≤768px) --- already has some rules, filling gaps --- */
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 0 16px;
+  }
+
+  /* Navbar */
+  nav {
+    padding: 12px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .logo-img {
+    max-width: 200px;
+  }
+
+  /* Hide nav links on small screens, keep CTA + theme toggle */
+  .nav-links {
+    display: none;
+  }
+
+  /* Hero */
+  .hero-text .hero-heading {
+    font-size: 2.4rem;
+  }
+
+  .hero-btn {
+    margin-bottom: 24px;
+  }
+
+  /* Community hero */
+  .community-hero {
+    padding: 40px 20px 32px;
+  }
+
+  .community-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  /* Community layout: stack all columns */
+  .community-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .categories-sidebar {
+    padding: 16px 20px;
+    border-right: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  }
+
+  /* Flatten category list to horizontal scroll */
+  .category-list {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 6px;
+    padding-bottom: 4px;
+  }
+
+  .category-list li {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .cat-count {
+    display: none;
+  }
+
+  .discussions-feed {
+    padding: 20px 16px;
+    border-right: none;
+  }
+
+  .right-sidebar {
+    padding: 16px 20px;
+    grid-template-columns: 1fr;
+    border-top: 1px solid rgba(139, 92, 246, 0.1);
+  }
+
+  /* Community CTA */
+  .community-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 24px 16px;
+    padding: 28px 24px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Filter section: stack search below filters */
+  .filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px 16px;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .filter-buttons {
+    width: 100%;
+  }
+
+  .explore-banner {
+    padding: 16px 16px 12px;
+  }
+
+  .explore-banner h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Footer */
+  footer {
+    padding: 24px 20px;
+  }
+
+  footer .footer-top {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  footer .footer-links {
+    text-align: left;
+  }
+
+  footer .divider {
+    display: none;
+  }
+}
+
+/* --- Small phones (≤480px) --- */
+@media (max-width: 480px) {
+  .hero-text .hero-heading {
+    font-size: 2rem;
+  }
+
+  .hero-btn {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
+
+  .explore-banner h1 {
+    font-size: 2rem;
+  }
+
+  .community-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .community-cta {
+    margin: 16px;
+    padding: 22px 18px;
+  }
+
+  .cta-text h3 {
+    font-size: 1.2rem;
+  }
+
+  nav {
+    padding: 10px 14px;
+  }
+
+  .nav-btn {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+  }
+
+  .opportunity-card {
+    padding: 22px 18px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  /* Feed toolbar: stack on small screens */
+  .feed-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .feed-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sort-select {
+    flex: 1;
+  }
+}
+
+/* --- Very small phones (≤360px) --- */
+@media (max-width: 360px) {
+  .hero-text .hero-heading {
+    font-size: 1.75rem;
+  }
+
+  .page-wrapper {
+    padding: 0 12px;
+  }
+
+  .logo-img {
+    max-width: 160px;
+  }
+
+  .theme-btn button {
+    padding: 7px 8px;
+    font-size: 0.8rem;
+  }
+}
