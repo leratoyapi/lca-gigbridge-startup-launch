@@ -1,578 +1,356 @@
-/* ---- GIGBRIDGE - About Page Styles ---- */
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
 
-/* ---- GIGBRIDGE - About Page Styles (Complete) ---- */
-
-/* ----- 1. CSS VARIABLES (Light Mode Defaults) ----- */
-:root {
-    --bg-body: #f8fafc;
-    --bg-white: #ffffff;
-    --bg-input: #f1f5f9;
-    --bg-nav: #ffffff;
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
-    --text-light: #94a3b8;
-    --border-color: #e2e8f0;
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
-    --primary-light: #3b82f6;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --radius: 12px;
-    --transition: all 0.3s ease;
-    --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    --nav-height: 70px;
-}
-
-/* Dark mode overrides (applied via JS) */
-html.dark-mode {
-    --bg-body: #0f172a;
-    --bg-white: #1e293b;
-    --bg-input: #334155;
-    --bg-nav: #1e293b;
-    --text-dark: #f8fafc;
-    --text-muted: #94a3b8;
-    --text-light: #64748b;
-    --border-color: #334155;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* ----- 2. RESET & BASE ----- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-family);
-    background: var(--bg-body);
-    color: var(--text-dark);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* ----- 3. CONTAINER ----- */
+/* Main Container */
 .container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 24px;
-    flex: 1;
-}
-
-/* ----- 4. NAVBAR ----- */
-.navbar {
-    width: 100%;
-    background: var(--bg-nav);
-    border-bottom: 1px solid var(--border-color);
-    padding: 0 24px;
-    height: var(--nav-height);
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-.nav-container {
-    width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 60px;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--text-dark);
-    text-decoration: none;
-    letter-spacing: -0.5px;
-    transition: color 0.3s ease;
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+
+.container h1,
+.container h2 {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    margin-bottom: 15px;
 }
 
-.logo span {
-    color: var(--primary);
+.container h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
 }
 
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    list-style: none;
+.container h2 {
+    font-size: 2.3rem;
 }
 
-.nav-menu li {
-    display: inline;
+.container p {
+    line-height: 1.8;
+    color: var(--secondary-text);
 }
 
-.nav-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: var(--transition);
-}
 
-.nav-link:hover {
-    color: var(--text-dark);
-    background: var(--bg-body);
-}
+/* ============================================================
+   TEAM SECTION
+   ============================================================ */
 
-.nav-link.active {
-    color: var(--primary);
-    background: rgba(37, 99, 235, 0.08);
-}
-
-/* ---- Mobile Toggle ---- */
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 26px;
-    height: 3px;
-    background: var(--text-dark);
-    border-radius: 4px;
-    transition: var(--transition);
-}
-
-.nav-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 6px);
-}
-
-.nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -6px);
-}
-
-/* ----- 5. BUTTONS ----- */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-    transition: var(--transition);
-    font-family: var(--font-family);
-    background: var(--bg-input);
-    color: var(--text-dark);
-}
-
-.btn:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-}
-
-.btn-neon {
-    background: var(--primary);
-    color: #ffffff;
-}
-
-.btn-neon:hover {
-    background: var(--primary-hover);
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
-}
-
-/* ----- 6. HEADINGS ----- */
-h1 {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--text-dark);
-    letter-spacing: -1px;
-    margin-bottom: 8px;
-}
-
-h2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
-}
-
-h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-dark);
-}
-
-/* ----- 7. TEAM CAROUSEL ----- */
 .carousel-container {
-    margin-top: 24px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 8px 4px 16px 4px;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    cursor: grab;
-}
-
-.carousel-container:active {
-    cursor: grabbing;
-}
-
-.carousel-container::-webkit-scrollbar {
-    height: 6px;
-}
-
-.carousel-container::-webkit-scrollbar-track {
-    background: var(--bg-body);
-    border-radius: 8px;
-}
-
-.carousel-container::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 8px;
-}
-
-.carousel-container::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-hover);
+    margin-top: 35px;
+    overflow: hidden;
 }
 
 .carousel-track {
     display: flex;
-    gap: 24px;
-    padding: 4px 0;
-    width: max-content;
+    gap: 25px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+
+    scroll-behavior: smooth;
 }
 
-.carousel-hint {
-    display: block;
-    color: var(--text-light);
-    font-size: 13px;
-    margin-top: 12px;
-    text-align: center;
-    font-weight: 500;
+
+/* Hide scrollbar */
+.carousel-track::-webkit-scrollbar {
+    height: 8px;
 }
 
-/* ----- 8. TEAM CARDS ----- */
+.carousel-track::-webkit-scrollbar-thumb {
+    background: #8b5cf6;
+    border-radius: 20px;
+}
+
+
+/* Team Cards */
+
 .team-card {
-    background: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    padding: 24px;
-    min-width: 240px;
-    max-width: 260px;
-    flex: 0 0 auto;
-    transition: var(--transition);
+
+    min-width: 280px;
+
+    background-color: var(--card-bg);
+
+    border: 1px solid rgba(139,92,246,0.18);
+
+    border-radius: 18px;
+
+    padding: 30px;
+
     text-align: center;
-    box-shadow: var(--shadow-sm);
+
+    transition: all 0.3s ease;
+
 }
+
 
 .team-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary);
+
+    transform: translateY(-8px);
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+    0 0 20px rgba(139,92,246,0.3);
+
 }
+
+
+
+/* Avatar */
 
 .avatar-placeholder {
-    width: 80px;
-    height: 80px;
+
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 20px;
+
     border-radius: 50%;
-    background: var(--primary);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0 auto 16px auto;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-    flex-shrink: 0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+
+    background:
+    rgba(139,92,246,0.15);
+
+
+    border:2px solid #8b5cf6;
+
+
+    color:#a78bfa;
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
 }
+
+
+/* Team Name */
 
 .team-card h3 {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 4px;
+
+    font-size:1.25rem;
+
+    margin-bottom:12px;
+
 }
+
+
+
+/* Role Badge */
 
 .team-role {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
+
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    color:#a78bfa;
+
+    font-size:0.8rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
 }
 
-.team-role p {
-    margin: 0;
-}
 
-.team-role a {
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.team-role a:hover {
-    color: var(--primary-hover);
-    text-decoration: underline;
-}
+/* Bio */
 
 .team-bio {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: 12px;
-    min-height: 60px;
+
+    font-size:0.9rem;
+
+    min-height:90px;
+
 }
 
-/* ----- 9. FAQ ACCORDION ----- */
-.accordion-item {
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    margin-bottom: 12px;
-    overflow: hidden;
-    transition: var(--transition);
-    background: var(--bg-white);
+
+
+/* LinkedIn */
+
+.team-role a {
+
+    color:#8b5cf6;
+
+    text-decoration:none;
+
+    transition:0.3s ease;
+
 }
+
+
+.team-role a:hover {
+
+    color:white;
+
+}
+
+
+
+/* Carousel Hint */
+
+.carousel-hint {
+
+    display:block;
+
+    margin-top:15px;
+
+    color:var(--secondary-text);
+
+    text-align:center;
+
+}
+
+
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+
+
+.accordion-item {
+
+    background-color:var(--card-bg);
+
+    border:1px solid rgba(139,92,246,0.15);
+
+    border-radius:14px;
+
+    margin-bottom:15px;
+
+    overflow:hidden;
+
+    transition:0.3s ease;
+
+}
+
+
 
 .accordion-item:hover {
-    border-color: var(--primary-light);
+
+    border-color:#8b5cf6;
+
 }
+
+
+
+/* Question Button */
 
 .accordion-header {
-    width: 100%;
-    background: var(--bg-white);
-    border: none;
-    padding: 16px 20px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-dark);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: var(--transition);
-    font-family: var(--font-family);
-    text-align: left;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:20px 25px;
+
+
+    background:transparent;
+
+    border:none;
+
+
+    color:var(--text-color);
+
+    font-family:var(--font-body);
+
+    font-size:1rem;
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
 }
 
-.accordion-header:hover {
-    background: var(--bg-body);
+
+
+.accordion-header span {
+
+    font-size:1.5rem;
+
+    color:#8b5cf6;
+
 }
 
-.accordion-header .icon {
-    font-size: 22px;
-    font-weight: 300;
-    transition: transform 0.3s ease;
-    color: var(--primary);
-    flex-shrink: 0;
-    margin-left: 16px;
-    line-height: 1;
-}
 
-.accordion-header.active .icon {
-    transform: rotate(45deg);
-}
+
+/* Answer */
 
 .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    padding: 0 20px;
-    background: var(--bg-body);
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height 0.4s ease;
+
+    padding:0 25px;
+
 }
 
-.accordion-content.active {
-    max-height: 300px;
-    padding: 16px 20px;
-}
+
 
 .accordion-content p {
-    margin: 0;
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.6;
+
+    padding-bottom:20px;
+
+    margin:0;
+
 }
 
-/* ----- 10. SECTION SPACING ----- */
-.container section {
-    margin-bottom: 48px;
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+
+@media(max-width:768px){
+
+
+.container {
+
+    padding:30px 20px;
+
 }
 
-.container section:last-of-type {
-    margin-bottom: 0;
+
+.container h1 {
+
+    font-size:2.5rem;
+
 }
 
-/* ----- 11. FOOTER ----- */
-.footer {
-    margin-top: 48px;
-    padding: 24px 0;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-    width: 100%;
-    max-width: 1200px;
-    transition: border-color 0.3s ease;
+
+.container h2 {
+
+    font-size:1.8rem;
+
 }
 
-.footer p {
-    color: var(--text-light);
-    font-size: 13px;
-    margin: 0;
+
+.team-card {
+
+    min-width:240px;
+
 }
 
-/* ----- 12. RESPONSIVE ----- */
-@media (max-width: 992px) {
-    .nav-toggle {
-        display: flex;
-    }
 
-    .nav-menu {
-        position: absolute;
-        top: var(--nav-height);
-        left: 0;
-        right: 0;
-        background: var(--bg-nav);
-        flex-direction: column;
-        padding: 16px 24px;
-        gap: 4px;
-        border-bottom: 1px solid var(--border-color);
-        transform: scaleY(0);
-        transform-origin: top;
-        opacity: 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        pointer-events: none;
-    }
-
-    .nav-menu.open {
-        transform: scaleY(1);
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .nav-menu li {
-        width: 100%;
-    }
-
-    .nav-link {
-        display: block;
-        padding: 12px 16px;
-        width: 100%;
-    }
-
-    .nav-menu .btn {
-        width: 100%;
-        justify-content: center;
-        margin-top: 4px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 0 16px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    .team-card {
-        min-width: 200px;
-        max-width: 220px;
-        padding: 20px;
-    }
-
-    .avatar-placeholder {
-        width: 64px;
-        height: 64px;
-        font-size: 20px;
-    }
-
-    .team-card h3 {
-        font-size: 15px;
-    }
-
-    .accordion-header {
-        font-size: 14px;
-        padding: 14px 16px;
-    }
-
-    .accordion-header .icon {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    .team-card {
-        min-width: 170px;
-        max-width: 190px;
-        padding: 16px;
-    }
-
-    .avatar-placeholder {
-        width: 56px;
-        height: 56px;
-        font-size: 17px;
-    }
-
-    .team-card h3 {
-        font-size: 14px;
-    }
-
-    .team-role {
-        font-size: 10px;
-    }
-
-    .team-bio {
-        font-size: 12px;
-        min-height: 50px;
-    }
-
-    .accordion-header {
-        font-size: 13px;
-        padding: 12px 14px;
-    }
-
-    .accordion-content p {
-        font-size: 13px;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
 }
