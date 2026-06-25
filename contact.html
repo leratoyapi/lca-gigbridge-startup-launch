@@ -162,54 +162,40 @@
       <div class="copyright">&copy; 2026 GigBridge. All rights reserved.</div>
     </footer>
 
-    <script>
-      // Theme Toggle
-      const themeToggle = document.getElementById("theme-toggle");
+<script>
+  const roleSelect = document.getElementById("roleType");
+  const skillsGroup = document.getElementById("skillsGroup");
+  const optionalInput = document.getElementById("optional");
+  const clientJobGroup = document.getElementById("clientJobGroup");
+  const clientBudgetGroup = document.getElementById("clientBudgetGroup");
 
-      // Apply saved preference on load
-      if (localStorage.getItem("theme") === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
-        themeToggle.textContent = "Dark Mode";
-      }
+  roleSelect.addEventListener("change", function() {
+    if (this.value === "client") {
 
-      themeToggle.addEventListener("click", () => {
-        const isLight =
-          document.documentElement.getAttribute("data-theme") === "light";
+      // Hide skills
+      skillsGroup.classList.add("hidden");
 
-        if (isLight) {
-          document.documentElement.removeAttribute("data-theme");
-          themeToggle.textContent = "Light Mode";
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.documentElement.setAttribute("data-theme", "light");
-          themeToggle.textContent = "Dark Mode";
-          localStorage.setItem("theme", "light");
-        }
-      });
+      // Change optional placeholder
+      optionalInput.placeholder = "Company name or hiring preferences...";
 
-      const roleSelect = document.getElementById("roleType");
-      const skillsGroup = document.getElementById("skillsGroup");
-      const optionalInput = document.getElementById("optional");
-      const clientJobGroup = document.getElementById("clientJobGroup");
-      const clientBudgetGroup = document.getElementById("clientBudgetGroup");
-      const submitBtn = document.getElementById("submitBtn");
+      // Show client-specific fields
+      clientJobGroup.classList.remove("hidden");
+      clientBudgetGroup.classList.remove("hidden");
 
-      roleSelect.addEventListener("change", function () {
-        if (this.value === "client") {
-          skillsGroup.classList.add("hidden");
-          optionalInput.placeholder = "Company name or hiring preferences...";
-          clientJobGroup.classList.remove("hidden");
-          clientBudgetGroup.classList.remove("hidden");
-          submitBtn.textContent = "Post Job";
-        } else {
-          skillsGroup.classList.remove("hidden");
-          optionalInput.placeholder =
-            "Tell us about yourself or the type of work you're looking for...";
-          clientJobGroup.classList.add("hidden");
-          clientBudgetGroup.classList.add("hidden");
-          submitBtn.textContent = "Submit Application";
-        }
-      });
-    </script>
+    } else {
+
+      // Show skills again
+      skillsGroup.classList.remove("hidden");
+
+      // Reset optional placeholder
+      optionalInput.placeholder = "Tell us about yourself or the type of work you're looking for...";
+
+      // Hide client-specific fields
+      clientJobGroup.classList.add("hidden");
+      clientBudgetGroup.classList.add("hidden");
+
+    }
+  });
+</script>
   </body>
 </html>
