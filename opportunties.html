@@ -1,829 +1,642 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GigBridge - Explore Opportunities</title>
-    <style>
-        /* --- WIREFRAME DESIGN SYSTEM --- */
-        :root {
-            --bg-body: #f1f5f9;          
-            --bg-navbar: #ffffff;        
-            --bg-banner: #b4c6e7;        
-            --bg-card: #ffffff;          
-            --text-dark: #1e293b;        
-            --text-muted: #64748b;       
-            --border-color: #cbd5e1;     
-            --accent-blue: #3b82f6;      
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GigBridge - Opportunities</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">
+        <img src="images/logo.png" alt="GigBridge Logo" class="logo-img" />
+      </div>
 
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-dark);
-        }
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="opportunities.html" class="active">Opportunities</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
 
-        /* --- TOP NAVBAR --- */
-        .navbar {
-            background-color: var(--bg-navbar);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 4%;
-            border-bottom: 1px solid var(--border-color);
-        }
+      <div class="nav-btn">
+        <a href="#">Get Started</a>
+      </div>
 
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            text-decoration: none;
-            color: var(--text-dark);
-        }
-
-        .search-container {
-            display: flex;
-            align-items: center;
-            background-color: #f8fafc;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 6px 12px;
-            width: 280px;
-        }
-
-        .search-container input {
-            border: none;
-            background: transparent;
-            outline: none;
-            width: 100%;
-            font-size: 0.9rem;
-            padding-left: 6px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-item {
-            text-align: center;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.78rem;
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-        }
-
-        .nav-icon {
-            font-size: 1.2rem;
-        }
-
-        .nav-item.active {
-            color: var(--accent-blue);
-        }
-
-        .profile-avatar {
-            font-size: 1.8rem;
-            color: #475569;
-            cursor: pointer;
-        }
-
-        /* --- EXPLORE BANNER --- */
-        .explore-banner {
-            background-color: var(--bg-banner);
-            padding: 40px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .explore-banner h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0;
-            letter-spacing: -0.5px;
-        }
-
-        .theme-toggle {
-            font-size: 1.8rem;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        /* --- FILTERS SUB-ROW --- */
-        .filter-section {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 20px 6%;
-            overflow-x: auto;
-        }
-
-        .filter-icon {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-right: 8px;
-        }
-
-        .filter-btn {
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 6px 14px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            white-space: nowrap;
-            color: var(--text-dark);
-            transition: all 0.2s ease;
-        }
-
-        .filter-btn.active {
-            background-color: var(--text-dark);
-            color: #ffffff;
-            border-color: var(--text-dark);
-        }
-
-        /* --- THREE-COLUMN CARDS GRID --- */
-        .cards-grid {
-            max-width: 1300px;
-            margin: 0 auto 60px auto;
-            padding: 0 6%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        /* Card Styling & Filter Animation Layout */
-        .opportunity-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Class handled by JS for hiding unselected cards */
-        .opportunity-card.hidden {
-            display: none;
-            opacity: 0;
-            transform: scale(0.95);
-        }
-
-        .card-header-main {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .card-user-icon {
-            font-size: 1.3rem;
-            color: var(--text-dark);
-        }
-
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .card-body-text {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.5;
-            margin: 0 0 12px 0;
-        }
-
-        /* --- HIDDEN DETAILS SECTION --- */
-        .extended-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, margin-top 0.3s ease;
-            border-top: 0px solid transparent;
-            padding-top: 0;
-        }
-
-        /* Class injected by JS to slide detail panels open */
-        .extended-details.open {
-            max-height: 250px; 
-            margin-top: 10px;
-            margin-bottom: 15px;
-            border-top: 1px dashed var(--border-color);
-            padding-top: 12px;
-        }
-
-        .details-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--accent-blue);
-            margin: 0 0 6px 0;
-        }
-
-        .details-list {
-            margin: 0;
-            padding-left: 18px;
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        /* Show More Button */
-        .show-more-btn {
-            align-self: flex-start;
-            background-color: #e2e8f0;
-            border: 1px solid #cbd5e1;
-            color: var(--text-dark);
-            font-size: 0.82rem;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.15s ease;
-            margin-top: auto;
-        }
-
-        .show-more-btn:hover {
-            background-color: #cbd5e1;
-        }
-
-        /* --- RESPONSIVE SCREEN ADJUSTMENTS --- */
-        @media (max-width: 1024px) {
-            .cards-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 12px;
-                padding: 15px;
-            }
-            .search-container {
-                width: 100%;
-            }
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-            .explore-banner h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="navbar">
-        <a href="#" class="logo-text">GigBridge
-        
-        <div class="search-container">
-            <span>🔍</span>
-            <input type="text" id="searchInput" placeholder="Search here ...">
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="#" class="nav-item"><span class="nav-icon">🏠</span><span>Home</span></a></li>
-            <li><a href="#" class="nav-item active"><span class="nav-icon">💼</span><span>Opportunities</span></a></li>
-            <li><a href="#" class="nav-item"><span class="nav-icon">👥</span><span>Connections</span></a></li>
-            <li><a href="#" class="nav-item"><span class="nav-icon">ℹ️</span><span>About Us</span></a></li>
-            <li><a href="#" class="nav-item"><span class="nav-icon">✉️</span><span>Contact Us</span></a></li>
-        </ul>
-
-        <div class="profile-avatar">👤</div>
+      <div class="theme-btn">
+        <button id="theme-toggle">Light Mode</button>
+      </div>
     </nav>
 
-    <header class="explore-banner">
-        <h1>Explore Opportunities</h1>
-        <div class="theme-toggle">🌙</div>
-    </header>
+    <!-- PAGE CONTENT -->
+    <main class="page-wrapper">
+      <header class="explore-banner">
+        <h1>
+          Explore
+          <span class="purple-text">Opportunities</span>
+        </h1>
+      </header>
 
-    <section class="filter-section">
-        <div class="filter-icon">🎛️</div>
-        <button class="filter-btn active" data-target="all">ALL</button>
-        <button class="filter-btn" data-target="software">Software Developer</button>
-        <button class="filter-btn" data-target="graphic">Graphic Designer</button>
-        <button class="filter-btn" data-target="ui">UI Designer</button>
-        <button class="filter-btn" data-target="teacher">Teacher</button>
-        <button class="filter-btn" data-target="account">Account Manager</button>
-    </section>
-
-    <main class="cards-grid">
-
-        <div class="opportunity-card" data-category="software">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Junior Web Developer</h3>
-                </div>
-                <p class="card-body-text">
-                    Entry-level training program. Perfect for tech students or self-taught coders looking for a real workplace portfolio project. No professional experience is needed to apply.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Basic knowledge of HTML & CSS</li>
-                        <li>Willingness to learn version control (Git)</li>
-                        <li>Stipend: R5,500 pm training allowance</li>
-                    </ul>
-                </div>
-            </div>
-            <button class="show-more-btn">Show more</button>
+      <section class="filter-section">
+        <div class="filter-buttons">
+          <div class="filter-icon">
+            <img src="images/filter.png" alt="Filter Icon" class="filter-img" />
+          </div>
+          <button class="filter-btn active" data-target="all">ALL</button>
+          <button class="filter-btn" data-target="software">
+            Software Developer
+          </button>
+          <button class="filter-btn" data-target="graphic">
+            Graphic Designer
+          </button>
+          <button class="filter-btn" data-target="ui">UI Designer</button>
+          <button class="filter-btn" data-target="teacher">Teacher</button>
+          <button class="filter-btn" data-target="account">
+            Account Manager
+          </button>
         </div>
 
-        <div class="opportunity-card" data-category="software">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">QA Testing Assistant</h3>
-                </div>
-                <p class="card-body-text">
-                    Help our engineering tracks check interfaces for basic design bugs and text alignment errors. Includes basic training modules on spreadsheet error tracking.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>High attention to detail</li>
-                        <li>Basic computer literacy skills</li>
-                        <li>Flexible hours (Remote option available)</li>
-                    </ul>
-                </div>
+        <div class="search-row">
+          <div class="search-container">
+            <div class="search-icon">
+              <img
+                src="images/search-icon.png"
+                alt="Search Icon"
+                class="search-img"
+              />
             </div>
-            <button class="show-more-btn">Show more</button>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Browse opportunities ..."
+            />
+          </div>
         </div>
+      </section>
 
+      <div class="cards-grid">
         <div class="opportunity-card" data-category="software">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Python Coding Apprentice</h3>
-                </div>
-                <p class="card-body-text">
-                    Work alongside developers handling straightforward server scripts and introductory database input tasks. Ideal for foundational terminal learners.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Basic logic or foundational Python knowledge</li>
-                        <li>Good mathematical problem-solving skills</li>
-                        <li>Mentorship: Structured weekly review check-ins</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Junior Web Developer</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Entry-level training program. Perfect for tech students or
+              self-taught coders looking for a real workplace portfolio project.
+              No professional experience is needed to apply.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Basic knowledge of HTML & CSS</li>
+                <li>Willingness to learn version control (Git)</li>
+                <li>Stipend: R5,500 pm training allowance</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="software">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Frontend Vue.js Intern</h3>
-                </div>
-                <p class="card-body-text">
-                    Practice converting wireframe concepts into component code structures using basic reactive attributes. Great for establishing structured workflow layout foundations.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Familiarity with basic JavaScript variables</li>
-                        <li>Desire to build clean, fast modern websites</li>
-                        <li>Includes real-world deployment training milestones</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">QA Testing Assistant</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Help our engineering tracks check interfaces for basic design bugs
+              and text alignment errors. Includes basic training modules on
+              spreadsheet error tracking.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>High attention to detail</li>
+                <li>Basic computer literacy skills</li>
+                <li>Flexible hours (Remote option available)</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
-
-        <div class="opportunity-card" data-category="graphic">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Social Media Intern</h3>
-                </div>
-                <p class="card-body-text">
-                    Help schedule simple promotional content posts and coordinate chat replies. Perfect for youth actively interested in managing TikTok or Instagram profiles.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Active user of modern social apps</li>
-                        <li>Basic mobile video editing skills</li>
-                        <li>Remote layout option included</li>
-                    </ul>
-                </div>
+        <div class="opportunity-card" data-category="software">
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Python Coding Apprentice</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Work alongside developers handling straightforward server scripts
+              and introductory database input tasks. Ideal for foundational
+              terminal learners.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Basic logic or foundational Python knowledge</li>
+                <li>Good mathematical problem-solving skills</li>
+                <li>Mentorship: Structured weekly review check-ins</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
-        <div class="opportunity-card" data-category="graphic">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Junior Illustrator Associate</h3>
-                </div>
-                <p class="card-body-text">
-                    Assist the marketing division by creating basic vectors, patterns, and icon designs using standard creative tooling sets. Practice working from clear design prompts.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Familiarity with vector shapes and color selection</li>
-                        <li>Creative mindset with a foundational drawing portfolio</li>
-                        <li>Full training in asset exporting provided</li>
-                    </ul>
-                </div>
+        <div class="opportunity-card" data-category="software">
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Frontend Vue.js Intern</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
-        </div>
-
-        <div class="opportunity-card" data-category="graphic">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Brand Layout Assistant</h3>
-                </div>
-                <p class="card-body-text">
-                    Organize typography setups and position logo placeholders for printable documents, local flyers, and promotional digital newsletters.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Basic knowledge of fonts and spacing layouts</li>
-                        <li>Strong alignment and formatting skills</li>
-                        <li>Part-time hours available</li>
-                    </ul>
-                </div>
+            <p class="card-body-text">
+              Practice converting wireframe concepts into component code
+              structures using basic reactive attributes. Great for establishing
+              structured workflow layout foundations.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Familiarity with basic JavaScript variables</li>
+                <li>Desire to build clean, fast modern websites</li>
+                <li>Includes real-world deployment training milestones</li>
+              </ul>
             </div>
-            <button class="show-more-btn">Show more</button>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="graphic">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Banner & Logo Trainee</h3>
-                </div>
-                <p class="card-body-text">
-                    Learn to customize pre-built template assets for neighborhood retail partners. A practical avenue to transform a casual design hobby into workplace experience.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>No formal experience required</li>
-                        <li>Eagerness to follow brand style guides</li>
-                        <li>Stipend: R4,000 pm workspace allowance</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Social Media Intern</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Help schedule simple promotional content posts and coordinate chat
+              replies. Perfect for youth actively interested in managing TikTok
+              or Instagram profiles.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Active user of modern social apps</li>
+                <li>Basic mobile video editing skills</li>
+                <li>Remote layout option included</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
+        <div class="opportunity-card" data-category="graphic">
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Junior Illustrator Associate</h3>
+            </div>
+            <p class="card-body-text">
+              Assist the marketing division by creating basic vectors, patterns,
+              and icon designs using standard creative tooling sets. Practice
+              working from clear design prompts.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Familiarity with vector shapes and color selection</li>
+                <li>Creative mindset with a foundational drawing portfolio</li>
+                <li>Full training in asset exporting provided</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
+        </div>
+
+        <div class="opportunity-card" data-category="graphic">
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Brand Layout Assistant</h3>
+            </div>
+            <p class="card-body-text">
+              Organize typography setups and position logo placeholders for
+              printable documents, local flyers, and promotional digital
+              newsletters.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Basic knowledge of fonts and spacing layouts</li>
+                <li>Strong alignment and formatting skills</li>
+                <li>Part-time hours available</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
+        </div>
+
+        <div class="opportunity-card" data-category="graphic">
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Banner & Logo Trainee</h3>
+            </div>
+            <p class="card-body-text">
+              Learn to customize pre-built template assets for neighborhood
+              retail partners. A practical avenue to transform a casual design
+              hobby into workplace experience.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>No formal experience required</li>
+                <li>Eagerness to follow brand style guides</li>
+                <li>Stipend: R4,000 pm workspace allowance</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
+        </div>
 
         <div class="opportunity-card" data-category="ui">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Junior UI Design Assistant</h3>
-                </div>
-                <p class="card-body-text">
-                    Assist with order tracking, Figma mockup formatting, and wireframe presentation organization. An excellent avenue to practice essential digital application design skills.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Basic understanding of color layout shapes</li>
-                        <li>Figma workspace familiarity is a bonus</li>
-                        <li>Full portfolio guidance included</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Junior UI Design Assistant</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Assist with order tracking, Figma mockup formatting, and wireframe
+              presentation organization. An excellent avenue to practice
+              essential digital application design skills.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Basic understanding of color layout shapes</li>
+                <li>Figma workspace familiarity is a bonus</li>
+                <li>Full portfolio guidance included</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="ui">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Wireframe Prototype Intern</h3>
-                </div>
-                <p class="card-body-text">
-                    Help connect navigation states inside basic product wireframes. Learn how users navigate through functional layouts before engineering sprints begin.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Interest in how digital buttons and apps function</li>
-                        <li>Good logical breakdown skills</li>
-                        <li>Mentorship directly from senior designers</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Wireframe Prototype Intern</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Help connect navigation states inside basic product wireframes.
+              Learn how users navigate through functional layouts before
+              engineering sprints begin.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Interest in how digital buttons and apps function</li>
+                <li>Good logical breakdown skills</li>
+                <li>Mentorship directly from senior designers</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="ui">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Interface Asset Coordinator</h3>
-                </div>
-                <p class="card-body-text">
-                    Help map icon sets, uniform border rules, and styling variables into a central design repository. Ensures clean organization across product tracks.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Strong sorting and categorization skills</li>
-                        <li>Comfortable with collaborative digital spaces</li>
-                        <li>100% remote workspace setup supported</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Interface Asset Coordinator</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Help map icon sets, uniform border rules, and styling variables
+              into a central design repository. Ensures clean organization
+              across product tracks.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Strong sorting and categorization skills</li>
+                <li>Comfortable with collaborative digital spaces</li>
+                <li>100% remote workspace setup supported</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="ui">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">App Testing Panelist</h3>
-                </div>
-                <p class="card-body-text">
-                    Navigate through freshly configured app layouts, sharing vocal feedback regarding clarity, text scaling, and overall button usability settings.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Clear communication style</li>
-                        <li>Own an active smartphone for interface navigation</li>
-                        <li>Paid per feedback session (R150 / hr)</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">App Testing Panelist</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
-        </div>
-
-
-        <div class="opportunity-card" data-category="teacher">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Afterschool Tutor Assistant</h3>
-                </div>
-                <p class="card-body-text">
-                    Handle homework tracking, student attendance logging, and basic activity setups. Full support tracks are entirely provided by the lead academic educators.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Patience working with primary school learners</li>
-                        <li>Strong conversational English layout</li>
-                        <li>Part-time: Mon to Thu afternoons</li>
-                    </ul>
-                </div>
+            <p class="card-body-text">
+              Navigate through freshly configured app layouts, sharing vocal
+              feedback regarding clarity, text scaling, and overall button
+              usability settings.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Clear communication style</li>
+                <li>Own an active smartphone for interface navigation</li>
+                <li>Paid per feedback session (R150 / hr)</li>
+              </ul>
             </div>
-            <button class="show-more-btn">Show more</button>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="teacher">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Early Childhood Helper</h3>
-                </div>
-                <p class="card-body-text">
-                    Assist local development centers with reading circles, educational games, and creative arts workshops. A rewarding path to gain introductory foundational childcare experience.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Energetic and encouraging personality</li>
-                        <li>No formal certification required to start</li>
-                        <li>First-aid training path fully sponsored</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Afterschool Tutor Assistant</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Handle homework tracking, student attendance logging, and basic
+              activity setups. Full support tracks are entirely provided by the
+              lead academic educators.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Patience working with primary school learners</li>
+                <li>Strong conversational English layout</li>
+                <li>Part-time: Mon to Thu afternoons</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="teacher">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Digital Literacy Guide</h3>
-                </div>
-                <p class="card-body-text">
-                    Help community lab users set up email accounts, navigate internet search queries safely, and format basic resume layouts using text software tools.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Familiarity with standard web browsing fields</li>
-                        <li>Strong interpersonal patience skills</li>
-                        <li>Stipend: R4,800 monthly workspace support</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Early Childhood Helper</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Assist local development centers with reading circles, educational
+              games, and creative arts workshops. A rewarding path to gain
+              introductory foundational childcare experience.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Energetic and encouraging personality</li>
+                <li>No formal certification required to start</li>
+                <li>First-aid training path fully sponsored</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="teacher">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Sports Activity Facilitator</h3>
-                </div>
-                <p class="card-body-text">
-                    Coordinate youth field matches, distribute recreational equipment, and act as a positive role model while ensuring fair play rules are maintained.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Active interest in soccer, netball, or outdoor sports</li>
-                        <li>Punctual and reliable character values</li>
-                        <li>Weekend matching allowances included</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Digital Literacy Guide</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Help community lab users set up email accounts, navigate internet
+              search queries safely, and format basic resume layouts using text
+              software tools.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Familiarity with standard web browsing fields</li>
+                <li>Strong interpersonal patience skills</li>
+                <li>Stipend: R4,800 monthly workspace support</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
-
-        <div class="opportunity-card" data-category="account">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Retail Store Assistant</h3>
-                </div>
-                <p class="card-body-text">
-                    Gain baseline customer interaction and inventory control skills. Complete on-the-job guidance is offered for all first-time candidates during orientation.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Friendly communication style</li>
-                        <li>No experience required</li>
-                        <li>Shift allowance + store discounts</li>
-                    </ul>
-                </div>
+        <div class="opportunity-card" data-category="teacher">
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Sports Activity Facilitator</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
-        </div>
-
-        <div class="opportunity-card" data-category="account">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Data Entry Clerk</h3>
-                </div>
-                <p class="card-body-text">
-                    Maintain spreadsheet records and update customer address catalogs. Basic computer literacy and attention to descriptive text details are the only foundational necessities.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Basic typing accuracy</li>
-                        <li>Familiarity with Google Sheets</li>
-                        <li>Flexible independent study hours</li>
-                    </ul>
-                </div>
+            <p class="card-body-text">
+              Coordinate youth field matches, distribute recreational equipment,
+              and act as a positive role model while ensuring fair play rules
+              are maintained.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Active interest in soccer, netball, or outdoor sports</li>
+                <li>Punctual and reliable character values</li>
+                <li>Weekend matching allowances included</li>
+              </ul>
             </div>
-            <button class="show-more-btn">Show more</button>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="account">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Client Relations Trainee</h3>
-                </div>
-                <p class="card-body-text">
-                    Learn to field incoming company text tickets, update database records, and direct customer queries to the relevant department specialists.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Professional phone manners</li>
-                        <li>Basic writing or message composition skills</li>
-                        <li>Full script training provided entirely</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Retail Store Assistant</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Gain baseline customer interaction and inventory control skills.
+              Complete on-the-job guidance is offered for all first-time
+              candidates during orientation.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Friendly communication style</li>
+                <li>No experience required</li>
+                <li>Shift allowance + store discounts</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
         <div class="opportunity-card" data-category="account">
-            <div>
-                <div class="card-header-main">
-                    <span class="card-user-icon">👤</span>
-                    <h3 class="card-title">Junior Inventory Planner</h3>
-                </div>
-                <p class="card-body-text">
-                    Work alongside logisticians mapping stock shipments. Log received orders and crosscheck arrival times using internal inventory programs.
-                </p>
-                <div class="extended-details">
-                    <p class="details-title">What you need:</p>
-                    <ul class="details-list">
-                        <li>Organized approach to sorting paperwork</li>
-                        <li>Basic spreadsheet calculation understanding</li>
-                        <li>Growth path toward formal supply chain work</li>
-                    </ul>
-                </div>
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Data Entry Clerk</h3>
             </div>
-            <button class="show-more-btn">Show more</button>
+            <p class="card-body-text">
+              Maintain spreadsheet records and update customer address catalogs.
+              Basic computer literacy and attention to descriptive text details
+              are the only foundational necessities.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Basic typing accuracy</li>
+                <li>Familiarity with Google Sheets</li>
+                <li>Flexible independent study hours</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
         </div>
 
+        <div class="opportunity-card" data-category="account">
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Client Relations Trainee</h3>
+            </div>
+            <p class="card-body-text">
+              Learn to field incoming company text tickets, update database
+              records, and direct customer queries to the relevant department
+              specialists.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Professional phone manners</li>
+                <li>Basic writing or message composition skills</li>
+                <li>Full script training provided entirely</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
+        </div>
+
+        <div class="opportunity-card" data-category="account">
+          <div>
+            <div class="card-header-main">
+              <span class="card-user-icon">👤</span>
+              <h3 class="card-title">Junior Inventory Planner</h3>
+            </div>
+            <p class="card-body-text">
+              Work alongside logisticians mapping stock shipments. Log received
+              orders and crosscheck arrival times using internal inventory
+              programs.
+            </p>
+            <div class="extended-details">
+              <p class="details-title">What you need:</p>
+              <ul class="details-list">
+                <li>Organized approach to sorting paperwork</li>
+                <li>Basic spreadsheet calculation understanding</li>
+                <li>Growth path toward formal supply chain work</li>
+              </ul>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more</button>
+        </div>
+      </div>
     </main>
 
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="contact">
+          <h3>Contact Us</h3>
+          <p>info@gigbridge.co.za</p>
+          <p>+27 00 000 0000</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="opportunities.html" class="active">Opportunities</a></p>
+          <p><a href="community.html">Community</a></p>
+          <p><a href="about.html">About Us</a></p>
+          <p><a href="contact.html">Contact Us</a></p>
+        </div>
+      </div>
+
+      <div class="copyright">&copy; 2026 GigBridge. All rights Reserved</div>
+    </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- FUNCTIONALITY 1: CATEGORY FILTER BUTTONS ---
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const jobCards = document.querySelectorAll('.opportunity-card');
+      document.addEventListener('DOMContentLoaded', () => {
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Update active button indicator styling
-                    document.querySelector('.filter-btn.active').classList.remove('active');
-                    button.classList.add('active');
+        // --- 1. CATEGORY FILTER BUTTONS ---
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const jobCards = document.querySelectorAll('.opportunity-card');
 
-                    const selectedCategory = button.getAttribute('data-target');
+        filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            document.querySelector('.filter-btn.active').classList.remove('active');
+            button.classList.add('active');
 
-                    // Filter cards logically
-                    jobCards.forEach(card => {
-                        const cardCategory = card.getAttribute('data-category');
-                        
-                        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-                            card.classList.remove('hidden');
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    });
-                });
+            const selectedCategory = button.getAttribute('data-target');
+
+            jobCards.forEach(card => {
+              const cardCategory = card.getAttribute('data-category');
+              if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                card.classList.remove('hidden');
+              } else {
+                card.classList.add('hidden');
+              }
             });
-
-            // --- FUNCTIONALITY 2: SHOW MORE / SHOW LESS TOGGLE ---
-            const showMoreButtons = document.querySelectorAll('.show-more-btn');
-
-            showMoreButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Look upwards to grab the current card container block
-                    const cardContentBlock = btn.parentElement;
-                    const detailsSection = cardContentBlock.querySelector('.extended-details');
-
-                    // Toggle open layout status
-                    detailsSection.classList.toggle('open');
-
-                    // Alter text indicator context dynamically
-                    if (detailsSection.classList.contains('open')) {
-                        btn.textContent = 'Show less';
-                    } else {
-                        btn.textContent = 'Show more';
-                    }
-                });
-            });
-
-            // --- BONUS FUNCTIONALITY: TYPING SEARCH BAR ---
-            const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase().trim();
-                
-                // Clear active styling on filter rows during typed inputs
-                document.querySelector('.filter-btn.active').classList.remove('active');
-                filterButtons[0].classList.add('active'); // Reset back to "ALL" filter visual highlight
-
-                jobCards.forEach(card => {
-                    const title = card.querySelector('.card-title').textContent.toLowerCase();
-                    const body = card.querySelector('.card-body-text').textContent.toLowerCase();
-
-                    if (title.includes(query) || body.includes(query)) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                });
-            });
-
+          });
         });
-    </script>
 
-</body>
-</html> gi
+        // --- 2. SHOW MORE / SHOW LESS TOGGLE ---
+        // Fix: btn.parentElement is the card itself (show-more-btn is a direct
+        // child of .opportunity-card), so query .extended-details from the card.
+        const showMoreButtons = document.querySelectorAll('.show-more-btn');
+
+        showMoreButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const card = btn.closest('.opportunity-card');
+            const detailsSection = card.querySelector('.extended-details');
+
+            detailsSection.classList.toggle('open');
+            btn.textContent = detailsSection.classList.contains('open')
+              ? 'Show less'
+              : 'Show more';
+          });
+        });
+
+        // --- 3. SEARCH BAR ---
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase().trim();
+
+          document.querySelector('.filter-btn.active').classList.remove('active');
+          filterButtons[0].classList.add('active');
+
+          jobCards.forEach(card => {
+            const title = card.querySelector('.card-title').textContent.toLowerCase();
+            const body = card.querySelector('.card-body-text').textContent.toLowerCase();
+
+            if (title.includes(query) || body.includes(query)) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+
+        // --- 4. THEME TOGGLE ---
+        const themeBtn = document.getElementById('theme-toggle');
+
+        themeBtn.addEventListener('click', () => {
+          const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+          document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+          themeBtn.textContent = isLight ? 'Light Mode' : 'Dark Mode';
+        });
+
+      });
+    </script>
+  </body>
+</html>
