@@ -140,12 +140,7 @@ Traditional platforms present a **"catch-22"** where entry-level talent needs ex
 - Arrays
 - Objects
 - User feedback messages
-- [Additional feature: e.g., Dark Mode Toggle /  FAQ Accordion]
-
----
-
-
-
+- Additional feature: e.g., Dark Mode Toggle /  FAQ Accordion
 
 
 ---
@@ -177,12 +172,12 @@ main
 | Branch | Purpose |
 |--------|---------|
 | `main` | Final, reviewed, and working code only |
-| `james-dev` | James's development branch |
-| `muhammad-dev` | Muhammad's development branch |
-| `nqenqa-dev` | Nqenqa's development branch |
-| `mbekeni-dev` | Mbekeni's development branch |
-| `nonhlanhla-dev` | Nonhlanhla's development branch |
-| `lerato-dev` | Lerato's development branch |
+| `james-dev` | James's development branch - javascript,html,css |
+| `muhammad-dev` | Muhammad's development branch - javascript,html,css |
+| `nqenqa-dev` | Nqenqa's development branch -javascript,html,css |
+| `mbekeni-dev` | Mbekeni's development branch - javascript,html,css |
+| `nonhlanhla-dev` | Nonhlanhla's development branch - javascript,html,css |
+| `lerato-dev` | Lerato's development branch - javascript,html,css |
 
 ### Workflow Rules
 
