@@ -161,7 +161,7 @@
       </div>
       <div class="copyright">&copy; 2026 GigBridge. All rights reserved.</div>
     </footer>
-
+    
 <script>
   const roleSelect = document.getElementById("roleType");
   const skillsGroup = document.getElementById("skillsGroup");
@@ -169,33 +169,27 @@
   const clientJobGroup = document.getElementById("clientJobGroup");
   const clientBudgetGroup = document.getElementById("clientBudgetGroup");
 
+  // FIX #7: Debounce the change event to avoid excessive DOM manipulation
+  let changeTimeout;
+
   roleSelect.addEventListener("change", function() {
-    if (this.value === "client") {
-
-      // Hide skills
-      skillsGroup.classList.add("hidden");
-
-      // Change optional placeholder
-      optionalInput.placeholder = "Company name or hiring preferences...";
-
-      // Show client-specific fields
-      clientJobGroup.classList.remove("hidden");
-      clientBudgetGroup.classList.remove("hidden");
-
-    } else {
-
-      // Show skills again
-      skillsGroup.classList.remove("hidden");
-
-      // Reset optional placeholder
-      optionalInput.placeholder = "Tell us about yourself or the type of work you're looking for...";
-
-      // Hide client-specific fields
-      clientJobGroup.classList.add("hidden");
-      clientBudgetGroup.classList.add("hidden");
-
-    }
+    clearTimeout(changeTimeout);
+    changeTimeout = setTimeout(() => {
+      if (this.value === "client") {
+        skillsGroup.classList.add("hidden");
+        optionalInput.placeholder = "Company name or hiring preferences...";
+        clientJobGroup.classList.remove("hidden");
+        clientBudgetGroup.classList.remove("hidden");
+      } else {
+        skillsGroup.classList.remove("hidden");
+        optionalInput.placeholder = "Tell us about yourself or the type of work you're looking for...";
+        clientJobGroup.classList.add("hidden");
+        clientBudgetGroup.classList.add("hidden");
+      }
+    }, 0); // Batch DOM changes
   });
 </script>
+
+
   </body>
 </html>
