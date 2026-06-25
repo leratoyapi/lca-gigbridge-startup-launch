@@ -16,26 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // 2. BONUS CHALLENGE: DARK/LIGHT NEON MODE
     // ==========================================
-    const themeToggle = document.getElementById("theme-toggle");
+        // Theme Toggle
+     const themeToggle = document.getElementById("theme-toggle");
 
-    // Check local storage for preference
-    if (localStorage.getItem("theme") === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
-    }
+      // Apply saved preference on load
+     if (localStorage.getItem("theme") === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeToggle.textContent = "Dark Mode";
+        }
 
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            let currentTheme = document.documentElement.getAttribute("data-theme");
-            if (currentTheme === "light") {
-                document.documentElement.removeAttribute("data-theme");
-                localStorage.setItem("theme", "dark");
-            } else {
-                document.documentElement.setAttribute("data-theme", "light");
-                localStorage.setItem("theme", "light");
-            }
-        });
-    }
-
+      themeToggle.addEventListener("click", () => {
+          const isLight =
+            document.documentElement.getAttribute("data-theme") === "light";
+  
+          if (isLight) {
+              document.documentElement.removeAttribute("data-theme");
+              themeToggle.textContent = "Light Mode";
+              localStorage.setItem("theme", "dark");
+          } else {
+              document.documentElement.setAttribute("data-theme", "light");
+              themeToggle.textContent = "Dark Mode";
+              localStorage.setItem("theme", "light");
+          }
+      });
     // ==========================================
     // 3. FAQ ACCORDION INTERACTION
     // ==========================================

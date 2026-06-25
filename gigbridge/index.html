@@ -1,67 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NeoNexus - Connecting Next-Gen South African Tech Talents with Global Startups.">
-    <title>NeoNexus | Home</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GigBridge - Home</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">
+        <img src="images/logo.png" alt="GigBridge Logo" class="logo-img" />
+      </div>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Neo<span>Nexus</span></a>
-            <div class="nav-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Marketplace</a></li>
-                <li><a href="contact.html" class="nav-link">Join Us</a></li>
-                <li><button class="btn btn-neon" id="theme-toggle">Toggle Theme</button></li>
-            </ul>
-        </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="opportunities.html" class="nav-link">Opportunities</a>
+        <a href="community.html" class="nav-link">Community</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Join Us</a>
+      </div>
+
+      <div class="nav-btn">
+        <a href="opportunities.html">Get Started</a>
+      </div>
+
+      <div class="theme-btn">
+        <button id="theme-toggle">Light Mode</button>
+      </div>
     </nav>
 
-    <main class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Deploying Next-Gen <span>Tech Talent</span></h1>
-                <p>NeoNexus connects top tier South African student developers and data analysts directly to businesses needing elite performance digital solutions.</p>
-                <a href="services.html" class="btn btn-neon" style="margin-top: 1.5rem;">Explore Marketplace</a>
-            </div>
-            <div class="hero-image">
-                <div style="background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); width:100%; height:300px; border-radius:8px; opacity: 0.7;"></div>
-            </div>
-        </section>
+    <!-- HERO -->
+    <div class="page-wrapper">
+      <section class="hero-section">
+        <div class="hero-image">
+          <img src="images/workplace2.jpg" alt="People working in the workplace" />
+        </div>
 
-        <section>
-            <h2>Core Features</h2>
-            <div class="grid-layout">
-                <div class="interactive-card">
-                    <h3>Vetted Junior Developers</h3>
-                    <p>Access exceptional frontend, backend, and fullstack junior developers operating on the modern web stack.</p>
-                </div>
-                <div class="interactive-card">
-                    <h3>Data Analytics Insights</h3>
-                    <p>Empower your operations with insights provided by upcoming data analysts trained in visualization platforms.</p>
-                </div>
-                <div class="interactive-card">
-                    <h3>POPIA Secure Architecture</h3>
-                    <p>All contracts and internal digital assets built directly via our talent pool align strictly to national framework directives.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+        <div class="hero-text">
+          <h1 class="hero-heading">
+            <span>Connect.</span>
+            <span class="purple-text">Create.</span>
+            <span>Grow.</span>
+          </h1>
+          <p>
+            The platform where freelancers find real opportunities and build
+            lasting careers.
+          </p>
+          <div class="hero-btn">
+            <a href="opportunities.html">Explore Opportunities</a>
+          </div>
+        </div>
+      </section>
+    </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 NeoNexus Startup Concept. Built for the HTML, CSS & JS Showcase Challenge.</p>
+    <!-- CAROUSEL -->
+    <section class="carousel-section">
+      <div class="carousel-wrapper">
+        <button class="carousel-control prev" aria-label="Previous card">
+          ‹
+        </button>
+        <div class="carousel-track">
+          <article class="opportunity-card">
+            <h3 class="card-title">Connect</h3>
+            <p class="card-body-text">
+              Meet professional peers, clients, and collaborators across the
+              network.
+            </p>
+          </article>
+          <article class="opportunity-card">
+            <h3 class="card-title">Create</h3>
+            <p class="card-body-text">
+              Bring new ideas to life with tools and teams built for growth.
+            </p>
+          </article>
+          <article class="opportunity-card">
+            <h3 class="card-title">Grow</h3>
+            <p class="card-body-text">
+              Scale your projects with mentorship, resources, and real
+              opportunities.
+            </p>
+          </article>
+          <article class="opportunity-card">
+            <h3 class="card-title">Collab</h3>
+            <p class="card-body-text">
+              Work together on flexible gigs and launch your next big outcome.
+            </p>
+          </article>
+          <article class="opportunity-card">
+            <h3 class="card-title">Learn</h3>
+            <p class="card-body-text">
+              Sharpen your skills with curated sessions and community-led
+              workshops.
+            </p>
+          </article>
+          <article class="opportunity-card">
+            <h3 class="card-title">Launch</h3>
+            <p class="card-body-text">
+              Turn your work into an impact with the right support and exposure.
+            </p>
+          </article>
+        </div>
+        <button class="carousel-control next" aria-label="Next card">›</button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="contact">
+          <h3>GigBridge</h3>
+          <p>Connecting freelancers with real opportunities.</p>
+          <p>hello@gigbridge.io</p>
+        </div>
+        <div class="divider"></div>
+        <div class="footer-links">
+          <h3>Links</h3>
+          <p><a href="opportunities.html">Opportunities</a></p>
+          <p><a href="community.html">Community</a></p>
+          <p><a href="about.html">About Us</a></p>
+          <p><a href="contact.html">Join Us</a></p>
+        </div>
+      </div>
+      <div class="copyright">&copy; 2026 GigBridge. All rights reserved.</div>
     </footer>
 
-    <script src="js/main.js"></script>
-</body>
+    <script>
+             // Theme Toggle
+     const themeToggle = document.getElementById("theme-toggle");
+
+      // Apply saved preference on load
+     if (localStorage.getItem("theme") === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeToggle.textContent = "Dark Mode";
+        }
+
+      themeToggle.addEventListener("click", () => {
+          const isLight =
+            document.documentElement.getAttribute("data-theme") === "light";
+  
+          if (isLight) {
+              document.documentElement.removeAttribute("data-theme");
+              themeToggle.textContent = "Light Mode";
+              localStorage.setItem("theme", "dark");
+          } else {
+              document.documentElement.setAttribute("data-theme", "light");
+              themeToggle.textContent = "Dark Mode";
+              localStorage.setItem("theme", "light");
+          }
+      });
+
+      // Carousel
+      const carouselTrack = document.querySelector(".carousel-track");
+      document
+        .querySelector(".carousel-control.prev")
+        .addEventListener("click", () => {
+          carouselTrack.scrollBy({ left: -320, behavior: "smooth" });
+        });
+      document
+        .querySelector(".carousel-control.next")
+        .addEventListener("click", () => {
+          carouselTrack.scrollBy({ left: 320, behavior: "smooth" });
+        });
+    </script>
+  </body>
 </html>
