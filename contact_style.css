@@ -1,4 +1,6 @@
 /* ---- GIGBRIDGE - Contact Page Styles ---- */
+/* Relies on variables defined in style.css:
+   --card-bg, --bg-color, --text-color, --secondary-text, --font-body */
 
 /* ---- 1. UTILITY ---- */
 
@@ -200,34 +202,5 @@ textarea.form-control {
 
   .form-control {
     font-size: 0.9rem;
-  }
-}
-
-/* ---- RESPONSIVE ADDITIONS — contact.css ---- */
-
-/* Tablet landscape */
-@media (max-width: 1024px) {
-  .contact-wrapper {
-    padding: 48px 40px;
-  }
-}
-
-/* Tablet portrait — already covered by your 768px block, no changes needed */
-
-/* Small phone */
-@media (max-width: 380px) {
-  .contact-wrapper {
-    padding: 16px 12px;
-  }
-  .contact-card {
-    padding: 20px 16px;
-    border-radius: 10px;
-  }
-  .contact-card h1 {
-    font-size: 1.3rem;
-  }
-  .submit-btn {
-    font-size: 0.9rem;
-    padding: 11px;
   }
 }
