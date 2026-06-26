@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --font-body: "Inter", sans-serif;
   --font-heading: "Manrope", sans-serif;
   --bg-color: #09090f;
@@ -10,11 +10,14 @@
   --muted-text: #8e8ea8;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   min-height: 100%;
 }
@@ -134,13 +137,16 @@ section {
 }
 
 .team-card {
-  min-width: 280px;
+  flex: 0 0 280px;
+
   background-color: var(--card-bg);
   border: 1px solid rgba(139, 92, 246, 0.18);
   border-radius: 18px;
   padding: 30px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .team-card:hover {
@@ -238,7 +244,9 @@ section {
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
+  transition:
+    max-height 0.4s ease,
+    padding 0.3s ease;
   padding: 0 25px;
 }
 
@@ -280,5 +288,222 @@ section {
 
   .team-card {
     min-width: 240px;
+  }
+}
+
+/* media queries overrides */
+
+/* ============================================
+   ABOUT PAGE — OVERFLOW & RESPONSIVE FIXES
+   Add these to the bottom of about_style.css
+   ============================================ */
+
+/* Force nothing to bleed past the viewport */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Fix nav width — was causing full page bleed */
+nav {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fix mission text — inline max-width: 1850px was overflowing */
+.container p {
+  max-width: 100% !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Keep team carousel scrollable inside its box only */
+.carousel-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Accordion items must not overflow */
+.accordion-item {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.accordion-header {
+  box-sizing: border-box;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.accordion-content {
+  box-sizing: border-box;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Container must stay within viewport */
+.container {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ============================================
+   ABOUT PAGE — MOBILE (≤768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
+
+  .container h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Nav: same grid layout as all other pages */
+  nav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 6px 12px;
+    justify-content: unset;
+  }
+
+  nav .logo {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  nav .logo img {
+    max-width: 90px;
+  }
+
+  nav .nav-burger {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 4px;
+  }
+
+  nav .nav-burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #8b5cf6;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  nav .nav-burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  nav .nav-burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  nav .nav-burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  nav .nav-btn {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    margin-left: 0;
+  }
+
+  nav .nav-btn a {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  nav .theme-btn {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  nav .theme-btn button {
+    font-size: 0.75rem;
+    padding: 5px 9px;
+  }
+
+  nav .nav-links {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    max-height: 0;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
+    padding: 0;
+    width: 100%;
+  }
+
+  nav .nav-links.active {
+    max-height: 300px;
+    padding: 8px 0 4px;
+  }
+
+  nav .nav-links a {
+    font-size: 0.875rem;
+    padding: 10px 4px;
+    width: 100%;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+  }
+
+  nav .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .team-card {
+    flex: 0 0 220px;
+  }
+
+  .accordion-header {
+    font-size: 0.9rem;
+    padding: 16px 18px;
   }
 }
