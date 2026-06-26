@@ -1,551 +1,523 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community | GigBridge</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="style.css" />
-  
-</head>
-<body>
-  
-  <nav>
-    <div class="logo">
-      <img src="img/logo.png" alt="GigBridge Logo" class="logo-img" />
-    </div>
-    
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="opportunities.html" class="nav-link">Opportunities</a>
-      <a href="community.html" class="nav-link active">Community</a>
-      <a href="about.html" class="nav-link">About Us</a>
-      <a href="contact.html" class="nav-link">Join Us</a>
-    </div>
-    
-    <div class="nav-btn">
-      <a href="opportunities.html">Get Started</a>
-    </div>
-    
-    <div class="theme-btn">
-      <button id="theme-toggle">Light Mode</button>
-    </div>
-  </nav>
-  
-  <main>
-    
-    <section class="community-hero">
-      <h1>Welcome to the<br><span class="purple-text">GigBridge Community</span></h1>
-      <p>Connect with students, graduates, freelancers and businesses building their futures together.</p>
-    </section>
-    
-    <section class="community-layout">
-      
-      <aside class="categories-sidebar">
-        <h3 class="sidebar-heading">Discussion Categories</h3>
-        <ul class="category-list">
-          <li class="active-category">All Discussions</li>
-          <li>Announcements</li>
-          <li>Freelancing Tips</li>
-          <li>Student Questions</li>
-          <li>Success Stories</li>
-          <li>Project Feedback</li>
-          <li>General Chat</li>
-        </ul>
-      </aside>
-      
-      <div class="post-cards-container">
-        <div class="discussions-feed">
-          
-          <div class="feed-toolbar">
-            <h2>Recent Discussions</h2>
-            <div class="feed-controls">
-              <select class="sort-select">
-                <option>Sort By</option>
-                <option>Newest</option>
-                <option>Most Liked</option>
-              </select>
-              <button class="new-post-btn">Create New Post</button>
-            </div>
-          </div>
-          
-          <div id="post-cards-list">
-            
-            <div class="post-card" data-category="Student Questions">
-              <div class="post-meta">
-                <span class="post-tag tag-student">Student Questions</span>
-                <div class="post-author">
-                  <span class="avatar">MC</span>
-                  <span class="author-info">Mariah C. · 1 hour ago</span>
-                </div>
-              </div>
-              <h4>What's the best way to build a frontend portfolio with no experience?</h4>
-              <p>I'm a beginner and would love advice on how to create a strong portfolio that can help me get my first opportunity. Any tips on projects that stand out?</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 12</span>
-                <span class="post-action">💬 8</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Success Stories">
-              <div class="post-meta">
-                <span class="post-tag tag-success">Success Stories</span>
-                <div class="post-author">
-                  <span class="avatar">SM</span>
-                  <span class="author-info">Sarah M. · 2 hours ago</span>
-                </div>
-              </div>
-              <h4>Just completed my first freelance website project!</h4>
-              <p>Big thanks to the GigBridge community for the feedback and support throughout the process! Couldn't have done it without you all.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 25</span>
-                <span class="post-action">💬 12</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Announcements">
-              <div class="post-meta">
-                <span class="post-tag tag-announce">Announcements</span>
-                <div class="post-author">
-                  <span class="avatar">SB</span>
-                  <span class="author-info">SkillBridge Team · 1 day ago</span>
-                </div>
-              </div>
-              <h4>Portfolio Review Workshop this Friday!</h4>
-              <p>Join us for a live portfolio review session with industry professionals. Get feedback on your work and learn what employers are looking for. Don't miss out!</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 50</span>
-                <span class="post-action">💬 5</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Freelancing Tips">
-              <div class="post-meta">
-                <span class="post-tag tag-tips">Freelancing Tips</span>
-                <div class="post-author">
-                  <span class="avatar">JD</span>
-                  <span class="author-info">James D. · 3 hours ago</span>
-                </div>
-              </div>
-              <h4>How to price your freelance projects as a beginner</h4>
-              <p>I've been freelancing for 6 months now and want to share what I've learned about pricing strategies. Here's a breakdown of what worked for me.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 34</span>
-                <span class="post-action">💬 18</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="General Chat">
-              <div class="post-meta">
-                <span class="post-tag tag-general">General Chat</span>
-                <div class="post-author">
-                  <span class="avatar">AL</span>
-                  <span class="author-info">Alex L. · 5 hours ago</span>
-                </div>
-              </div>
-              <h4>What tools do you use for remote collaboration?</h4>
-              <p>Curious to know what everyone's favorite tools are for working with clients remotely. I'm looking to improve my workflow.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 18</span>
-                <span class="post-action">💬 24</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Student Questions">
-              <div class="post-meta">
-                <span class="post-tag tag-student">Student Questions</span>
-                <div class="post-author">
-                  <span class="avatar">TK</span>
-                  <span class="author-info">Tumi K. · 3 hours ago</span>
-                </div>
-              </div>
-              <h4>How do I get started with JavaScript as a complete beginner?</h4>
-              <p>I've done HTML and CSS but JavaScript feels overwhelming. Where should I start?</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 9</span>
-                <span class="post-action">💬 5</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Student Questions">
-              <div class="post-meta">
-                <span class="post-tag tag-student">Student Questions</span>
-                <div class="post-author">
-                  <span class="avatar">NM</span>
-                  <span class="author-info">Nadia M. · 5 hours ago</span>
-                </div>
-              </div>
-              <h4>Is Bootstrap worth learning before CSS Grid?</h4>
-              <p>My mentor says learn CSS Grid first but my cohort is using Bootstrap. What do you all think?</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 14</span>
-                <span class="post-action">💬 11</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Success Stories">
-              <div class="post-meta">
-                <span class="post-tag tag-success">Success Stories</span>
-                <div class="post-author">
-                  <span class="avatar">LP</span>
-                  <span class="author-info">Lerato P. · 1 day ago</span>
-                </div>
-              </div>
-              <h4>I landed my first client after 3 months of learning!</h4>
-              <p>Never thought it would happen this fast. Consistency really does pay off. Thank you GigBridge!</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 47</span>
-                <span class="post-action">💬 20</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Success Stories">
-              <div class="post-meta">
-                <span class="post-tag tag-success">Success Stories</span>
-                <div class="post-author">
-                  <span class="avatar">BN</span>
-                  <span class="author-info">Bongani N. · 2 days ago</span>
-                </div>
-              </div>
-              <h4>My portfolio site got me an internship interview!</h4>
-              <p>A recruiter reached out after seeing my portfolio. Building in public really works!</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 38</span>
-                <span class="post-action">💬 15</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Announcements">
-              <div class="post-meta">
-                <span class="post-tag tag-announce">Announcements</span>
-                <div class="post-author">
-                  <span class="avatar">GB</span>
-                  <span class="author-info">GigBridge Team · 2 days ago</span>
-                </div>
-              </div>
-              <h4>New Marketplace features are now live!</h4>
-              <p>We've added filters and a rating system to the Marketplace. Go check it out and let us know what you think.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 62</span>
-                <span class="post-action">💬 9</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Announcements">
-              <div class="post-meta">
-                <span class="post-tag tag-announce">Announcements</span>
-                <div class="post-author">
-                  <span class="avatar">GB</span>
-                  <span class="author-info">GigBridge Team · 3 days ago</span>
-                </div>
-              </div>
-              <h4>Welcome to our 500th community member!</h4>
-              <p>We've hit a huge milestone. Thank you to everyone who has been part of this journey from the beginning.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 89</span>
-                <span class="post-action">💬 34</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Freelancing Tips">
-              <div class="post-meta">
-                <span class="post-tag tag-tips">Freelancing Tips</span>
-                <div class="post-author">
-                  <span class="avatar">ZD</span>
-                  <span class="author-info">Zara D. · 4 hours ago</span>
-                </div>
-              </div>
-              <h4>Always send a contract — no matter how small the project</h4>
-              <p>I learned this the hard way. Even a simple one-page agreement protects you and your client.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 41</span>
-                <span class="post-action">💬 13</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Freelancing Tips">
-              <div class="post-meta">
-                <span class="post-tag tag-tips">Freelancing Tips</span>
-                <div class="post-author">
-                  <span class="avatar">KM</span>
-                  <span class="author-info">Kagiso M. · 6 hours ago</span>
-                </div>
-              </div>
-              <h4>How I use Notion to manage all my freelance clients</h4>
-              <p>Keeping track of deadlines, invoices and feedback in one place has been a game changer for me.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 28</span>
-                <span class="post-action">💬 7</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="General Chat">
-              <div class="post-meta">
-                <span class="post-tag tag-general">General Chat</span>
-                <div class="post-author">
-                  <span class="avatar">PN</span>
-                  <span class="author-info">Palesa N. · 2 hours ago</span>
-                </div>
-              </div>
-              <h4>What's everyone currently working on?</h4>
-              <p>Just curious — drop your current project below. Love seeing what this community is building!</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 22</span>
-                <span class="post-action">💬 31</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="General Chat">
-              <div class="post-meta">
-                <span class="post-tag tag-general">General Chat</span>
-                <div class="post-author">
-                  <span class="avatar">RS</span>
-                  <span class="author-info">Ravi S. · 7 hours ago</span>
-                </div>
-              </div>
-              <h4>Anyone else struggle with staying motivated while learning?</h4>
-              <p>Some days coding feels impossible. How do you all keep going when it gets tough?</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 55</span>
-                <span class="post-action">💬 42</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Project Feedback">
-              <div class="post-meta">
-                <span class="post-tag tag-feedback">Project Feedback</span>
-                <div class="post-author">
-                  <span class="avatar">AM</span>
-                  <span class="author-info">Aisha M. · 1 hour ago</span>
-                </div>
-              </div>
-              <h4>Can someone review my portfolio site before I send it to clients?</h4>
-              <p>I've been working on it for two weeks and would love some honest feedback before I put it out there.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 7</span>
-                <span class="post-action">💬 4</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-            <div class="post-card" data-category="Project Feedback">
-              <div class="post-meta">
-                <span class="post-tag tag-feedback">Project Feedback</span>
-                <div class="post-author">
-                  <span class="avatar">OT</span>
-                  <span class="author-info">Oluwaseun T. · 3 hours ago</span>
-                </div>
-              </div>
-              <h4>Feedback on my tip calculator app?</h4>
-              <p>Just finished my first JavaScript project. Would love to know what I can improve before adding it to my portfolio.</p>
-              <div class="post-actions">
-                <span class="post-action like-btn">👍 11</span>
-                <span class="post-action">💬 8</span>
-                <span class="post-action">🔗 Share</span>
-              </div>
-            </div>
-            
-          </div><button class="load-more-btn">Load More Discussions ↓</button>
-          
-        </div>
-      </div><aside class="right-sidebar">
-        
-        <div class="sidebar-widget">
-          <h3 class="sidebar-heading">Trending Topics</h3>
-          <div class="trending-tags">
-            <span class="trend-tag">#PortfolioTips</span>
-            <span class="trend-tag">#FreelanceLife</span>
-            <span class="trend-tag">#StudentSuccess</span>
-            <span class="trend-tag">#WebDev</span>
-            <span class="trend-tag">#UXDesign</span>
-            <span class="trend-tag">#RemoteWork</span>
-          </div>
-        </div>
-        
-        <div class="sidebar-widget">
-          <h3 class="sidebar-heading">Most Popular</h3>
-          <ul class="popular-list">
-            <li>How to land your first client</li>
-            <li>10 portfolio tips that actually work</li>
-            <li>Balancing studies and freelancing</li>
-            <li>Building a personal brand</li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community | GigBridge</title>
+    <!-- removed the css/style.css link it was causing issues -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="images/logo.png" alt="GigBridge Logo" class="logo-img" />
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="opportunities.html" class="nav-link">Opportunities</a>
+        <a href="community.html" class="nav-link active">Community</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Join Us</a>
+      </div>
+
+      <div class="nav-btn">
+        <a href="opportunities.html">Get Started</a>
+      </div>
+
+      <div class="theme-btn">
+        <button id="theme-toggle">Light Mode</button>
+      </div>
+    </nav>
+
+    <main>
+      <section class="community-hero">
+        <h1>
+          Welcome to the<br /><span class="purple-text"
+            >GigBridge Community</span
+          >
+        </h1>
+        <p>
+          Connect with students, graduates, freelancers and businesses building
+          their futures together.
+        </p>
+      </section>
+
+      <section class="community-layout">
+        <aside class="categories-sidebar">
+          <h3 class="sidebar-heading">Discussion Categories</h3>
+          <ul class="category-list">
+            <li class="active-category">All Discussions</li>
+            <li>Announcements</li>
+            <li>Freelancing Tips</li>
+            <li>Student Questions</li>
+            <li>Success Stories</li>
+            <li>Project Feedback</li>
+            <li>General Chat</li>
           </ul>
-        </div>
-        
-        <div class="sidebar-widget">
-          <h3 class="sidebar-heading">Online Members</h3>
-          <div class="member-list">
-            <div class="member-row">
-              <div class="member-avatar">JD</div>
-              <div>
-                <div class="member-name">Jordan D.</div>
-                <div class="member-status">● Online now</div>
+        </aside>
+
+        <div class="post-cards-container">
+          <div class="discussions-feed">
+            <div class="feed-toolbar">
+              <h2>Recent Discussions</h2>
+              <div class="feed-controls">
+                <select class="sort-select">
+                  <option>Sort By</option>
+                  <option>Newest</option>
+                  <option>Most Liked</option>
+                </select>
+                <button class="new-post-btn">Create New Post</button>
               </div>
             </div>
-            <div class="member-row">
-              <div class="member-avatar">ER</div>
-              <div>
-                <div class="member-name">Emily R.</div>
-                <div class="member-status">● Online now</div>
+
+            <div id="post-cards-list">
+              <div class="post-card" data-category="Student Questions">
+                <div class="post-meta">
+                  <span class="post-tag tag-student">Student Questions</span>
+                  <div class="post-author">
+                    <span class="avatar">MC</span>
+                    <span class="author-info">Mariah C. · 1 hour ago</span>
+                  </div>
+                </div>
+                <h4>
+                  What's the best way to build a frontend portfolio with no
+                  experience?
+                </h4>
+                <p>
+                  I'm a beginner and would love advice on how to create a strong
+                  portfolio that can help me get my first opportunity. Any tips
+                  on projects that stand out?
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 12</span>
+                  <span class="post-action">💬 8</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Success Stories">
+                <div class="post-meta">
+                  <span class="post-tag tag-success">Success Stories</span>
+                  <div class="post-author">
+                    <span class="avatar">SM</span>
+                    <span class="author-info">Sarah M. · 2 hours ago</span>
+                  </div>
+                </div>
+                <h4>Just completed my first freelance website project!</h4>
+                <p>
+                  Big thanks to the GigBridge community for the feedback and
+                  support throughout the process! Couldn't have done it without
+                  you all.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 25</span>
+                  <span class="post-action">💬 12</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Announcements">
+                <div class="post-meta">
+                  <span class="post-tag tag-announce">Announcements</span>
+                  <div class="post-author">
+                    <span class="avatar">SB</span>
+                    <span class="author-info"
+                      >SkillBridge Team · 1 day ago</span
+                    >
+                  </div>
+                </div>
+                <h4>Portfolio Review Workshop this Friday!</h4>
+                <p>
+                  Join us for a live portfolio review session with industry
+                  professionals. Get feedback on your work and learn what
+                  employers are looking for. Don't miss out!
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 50</span>
+                  <span class="post-action">💬 5</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Freelancing Tips">
+                <div class="post-meta">
+                  <span class="post-tag tag-tips">Freelancing Tips</span>
+                  <div class="post-author">
+                    <span class="avatar">JD</span>
+                    <span class="author-info">James D. · 3 hours ago</span>
+                  </div>
+                </div>
+                <h4>How to price your freelance projects as a beginner</h4>
+                <p>
+                  I've been freelancing for 6 months now and want to share what
+                  I've learned about pricing strategies. Here's a breakdown of
+                  what worked for me.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 34</span>
+                  <span class="post-action">💬 18</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="General Chat">
+                <div class="post-meta">
+                  <span class="post-tag tag-general">General Chat</span>
+                  <div class="post-author">
+                    <span class="avatar">AL</span>
+                    <span class="author-info">Alex L. · 5 hours ago</span>
+                  </div>
+                </div>
+                <h4>What tools do you use for remote collaboration?</h4>
+                <p>
+                  Curious to know what everyone's favorite tools are for working
+                  with clients remotely. I'm looking to improve my workflow.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 18</span>
+                  <span class="post-action">💬 24</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Student Questions">
+                <div class="post-meta">
+                  <span class="post-tag tag-student">Student Questions</span>
+                  <div class="post-author">
+                    <span class="avatar">TK</span>
+                    <span class="author-info">Tumi K. · 3 hours ago</span>
+                  </div>
+                </div>
+                <h4>
+                  How do I get started with JavaScript as a complete beginner?
+                </h4>
+                <p>
+                  I've done HTML and CSS but JavaScript feels overwhelming.
+                  Where should I start?
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 9</span>
+                  <span class="post-action">💬 5</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Student Questions">
+                <div class="post-meta">
+                  <span class="post-tag tag-student">Student Questions</span>
+                  <div class="post-author">
+                    <span class="avatar">NM</span>
+                    <span class="author-info">Nadia M. · 5 hours ago</span>
+                  </div>
+                </div>
+                <h4>Is Bootstrap worth learning before CSS Grid?</h4>
+                <p>
+                  My mentor says learn CSS Grid first but my cohort is using
+                  Bootstrap. What do you all think?
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 14</span>
+                  <span class="post-action">💬 11</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Success Stories">
+                <div class="post-meta">
+                  <span class="post-tag tag-success">Success Stories</span>
+                  <div class="post-author">
+                    <span class="avatar">LP</span>
+                    <span class="author-info">Lerato P. · 1 day ago</span>
+                  </div>
+                </div>
+                <h4>I landed my first client after 3 months of learning!</h4>
+                <p>
+                  Never thought it would happen this fast. Consistency really
+                  does pay off. Thank you GigBridge!
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 47</span>
+                  <span class="post-action">💬 20</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Success Stories">
+                <div class="post-meta">
+                  <span class="post-tag tag-success">Success Stories</span>
+                  <div class="post-author">
+                    <span class="avatar">BN</span>
+                    <span class="author-info">Bongani N. · 2 days ago</span>
+                  </div>
+                </div>
+                <h4>My portfolio site got me an internship interview!</h4>
+                <p>
+                  A recruiter reached out after seeing my portfolio. Building in
+                  public really works!
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 38</span>
+                  <span class="post-action">💬 15</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Announcements">
+                <div class="post-meta">
+                  <span class="post-tag tag-announce">Announcements</span>
+                  <div class="post-author">
+                    <span class="avatar">GB</span>
+                    <span class="author-info">GigBridge Team · 2 days ago</span>
+                  </div>
+                </div>
+                <h4>New Marketplace features are now live!</h4>
+                <p>
+                  We've added filters and a rating system to the Marketplace. Go
+                  check it out and let us know what you think.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 62</span>
+                  <span class="post-action">💬 9</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Announcements">
+                <div class="post-meta">
+                  <span class="post-tag tag-announce">Announcements</span>
+                  <div class="post-author">
+                    <span class="avatar">GB</span>
+                    <span class="author-info">GigBridge Team · 3 days ago</span>
+                  </div>
+                </div>
+                <h4>Welcome to our 500th community member!</h4>
+                <p>
+                  We've hit a huge milestone. Thank you to everyone who has been
+                  part of this journey from the beginning.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 89</span>
+                  <span class="post-action">💬 34</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Freelancing Tips">
+                <div class="post-meta">
+                  <span class="post-tag tag-tips">Freelancing Tips</span>
+                  <div class="post-author">
+                    <span class="avatar">ZD</span>
+                    <span class="author-info">Zara D. · 4 hours ago</span>
+                  </div>
+                </div>
+                <h4>
+                  Always send a contract — no matter how small the project
+                </h4>
+                <p>
+                  I learned this the hard way. Even a simple one-page agreement
+                  protects you and your client.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 41</span>
+                  <span class="post-action">💬 13</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Freelancing Tips">
+                <div class="post-meta">
+                  <span class="post-tag tag-tips">Freelancing Tips</span>
+                  <div class="post-author">
+                    <span class="avatar">KM</span>
+                    <span class="author-info">Kagiso M. · 6 hours ago</span>
+                  </div>
+                </div>
+                <h4>How I use Notion to manage all my freelance clients</h4>
+                <p>
+                  Keeping track of deadlines, invoices and feedback in one place
+                  has been a game changer for me.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 28</span>
+                  <span class="post-action">💬 7</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="General Chat">
+                <div class="post-meta">
+                  <span class="post-tag tag-general">General Chat</span>
+                  <div class="post-author">
+                    <span class="avatar">PN</span>
+                    <span class="author-info">Palesa N. · 2 hours ago</span>
+                  </div>
+                </div>
+                <h4>What's everyone currently working on?</h4>
+                <p>
+                  Just curious — drop your current project below. Love seeing
+                  what this community is building!
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 22</span>
+                  <span class="post-action">💬 31</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="General Chat">
+                <div class="post-meta">
+                  <span class="post-tag tag-general">General Chat</span>
+                  <div class="post-author">
+                    <span class="avatar">RS</span>
+                    <span class="author-info">Ravi S. · 7 hours ago</span>
+                  </div>
+                </div>
+                <h4>
+                  Anyone else struggle with staying motivated while learning?
+                </h4>
+                <p>
+                  Some days coding feels impossible. How do you all keep going
+                  when it gets tough?
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 55</span>
+                  <span class="post-action">💬 42</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Project Feedback">
+                <div class="post-meta">
+                  <span class="post-tag tag-feedback">Project Feedback</span>
+                  <div class="post-author">
+                    <span class="avatar">AM</span>
+                    <span class="author-info">Aisha M. · 1 hour ago</span>
+                  </div>
+                </div>
+                <h4>
+                  Can someone review my portfolio site before I send it to
+                  clients?
+                </h4>
+                <p>
+                  I've been working on it for two weeks and would love some
+                  honest feedback before I put it out there.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 7</span>
+                  <span class="post-action">💬 4</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
+              </div>
+
+              <div class="post-card" data-category="Project Feedback">
+                <div class="post-meta">
+                  <span class="post-tag tag-feedback">Project Feedback</span>
+                  <div class="post-author">
+                    <span class="avatar">OT</span>
+                    <span class="author-info">Oluwaseun T. · 3 hours ago</span>
+                  </div>
+                </div>
+                <h4>Feedback on my tip calculator app?</h4>
+                <p>
+                  Just finished my first JavaScript project. Would love to know
+                  what I can improve before adding it to my portfolio.
+                </p>
+                <div class="post-actions">
+                  <span class="post-action like-btn">👍 11</span>
+                  <span class="post-action">💬 8</span>
+                  <span class="post-action">🔗 Share</span>
+                </div>
               </div>
             </div>
-            <div class="member-row">
-              <div class="member-avatar">MT</div>
-              <div>
-                <div class="member-name">Michael T.</div>
-                <div class="member-status">● Online now</div>
-              </div>
-            </div>
-            <div class="member-row">
-              <div class="member-avatar">SL</div>
-              <div>
-                <div class="member-name">Sophia L.</div>
-                <div class="member-status">● Online now</div>
-              </div>
-            </div>
-            <p class="more-online">+ 887 more online</p>
+            <button class="load-more-btn">Load More Discussions ↓</button>
           </div>
         </div>
-        
-      </aside></section></main>
-      
-      <footer>
-        <div class="footer-top">
-          <div class="contact">
-            <h3>Contact Us</h3>
-            <p>info@gigbridge.co.za</p>
-            <p>+27 00 000 0000</p>
+        <aside class="right-sidebar">
+          <div class="sidebar-widget">
+            <h3 class="sidebar-heading">Trending Topics</h3>
+            <div class="trending-tags">
+              <span class="trend-tag">#PortfolioTips</span>
+              <span class="trend-tag">#FreelanceLife</span>
+              <span class="trend-tag">#StudentSuccess</span>
+              <span class="trend-tag">#WebDev</span>
+              <span class="trend-tag">#UXDesign</span>
+              <span class="trend-tag">#RemoteWork</span>
+            </div>
           </div>
-          
-          <div class="divider"></div>
-          
-          <div class="footer-links">
-            <h3>Quick Links</h3>
-            <p><a href="index.html">Home</a></p>
-            <p><a href="opportunities.html">Opportunities</a></p>
-            <p><a href="community.html" class="active">Community</a></p>
-            <p><a href="about.html">About Us</a></p>
-            <p><a href="contact.html">Contact Us</a></p>
+
+          <div class="sidebar-widget">
+            <h3 class="sidebar-heading">Most Popular</h3>
+            <ul class="popular-list">
+              <li>How to land your first client</li>
+              <li>10 portfolio tips that actually work</li>
+              <li>Balancing studies and freelancing</li>
+              <li>Building a personal brand</li>
+            </ul>
           </div>
+
+          <div class="sidebar-widget">
+            <h3 class="sidebar-heading">Online Members</h3>
+            <div class="member-list">
+              <div class="member-row">
+                <div class="member-avatar">JD</div>
+                <div>
+                  <div class="member-name">Jordan D.</div>
+                  <div class="member-status">● Online now</div>
+                </div>
+              </div>
+              <div class="member-row">
+                <div class="member-avatar">ER</div>
+                <div>
+                  <div class="member-name">Emily R.</div>
+                  <div class="member-status">● Online now</div>
+                </div>
+              </div>
+              <div class="member-row">
+                <div class="member-avatar">MT</div>
+                <div>
+                  <div class="member-name">Michael T.</div>
+                  <div class="member-status">● Online now</div>
+                </div>
+              </div>
+              <div class="member-row">
+                <div class="member-avatar">SL</div>
+                <div>
+                  <div class="member-name">Sophia L.</div>
+                  <div class="member-status">● Online now</div>
+                </div>
+              </div>
+              <p class="more-online">+ 887 more online</p>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-top">
+        <div class="contact">
+          <h3>Contact Us</h3>
+          <p>info@gigbridge.co.za</p>
+          <p>+27 00 000 0000</p>
         </div>
-        
-        <div class="copyright">&copy; 2026 GigBridge. All rights Reserved</div>
-      </footer>
-      
-<<<<<<< HEAD
-<script>
-        // Theme Toggle
-     const themeToggle = document.getElementById("theme-toggle");
 
-      // Apply saved preference on load
-     if (localStorage.getItem("theme") === "light") {
-          document.documentElement.setAttribute("data-theme", "light");
-          themeToggle.textContent = "Dark Mode";
-        }
+        <div class="divider"></div>
 
-      themeToggle.addEventListener("click", () => {
-          const isLight =
-            document.documentElement.getAttribute("data-theme") === "light";
-  
-          if (isLight) {
-              document.documentElement.removeAttribute("data-theme");
-              themeToggle.textContent = "Light Mode";
-              localStorage.setItem("theme", "dark");
-          } else {
-              document.documentElement.setAttribute("data-theme", "light");
-              themeToggle.textContent = "Dark Mode";
-              localStorage.setItem("theme", "light");
-          }
-      });
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="opportunities.html">Opportunities</a></p>
+          <p><a href="community.html" class="active">Community</a></p>
+          <p><a href="about.html">About Us</a></p>
+          <p><a href="contact.html">Contact Us</a></p>
+        </div>
+      </div>
 
-let categoryItems = document.querySelectorAll('.category-list li');
+      <div class="copyright">&copy; 2026 GigBridge. All rights Reserved</div>
+    </footer>
 
-let posts = document.querySelectorAll('[data-category]');
-
-categoryItems.forEach(function(item) {
-  item.addEventListener("click", function() {
-    let selected = item.textContent; // Gets the text of the clicked item
-    
-    if (selected === "All Discussions") {
-      posts.forEach(function(post) {
-        post.style.display = "block";
-      });
-    } else {
-      posts.forEach(function(post) {
-        if (post.dataset.category === selected) { // dataset.category is how JavaScript reads a data-category attribute.
-          post.style.display = "block";
-        } else {
-          post.style.display = "none";
-        }
-      });
-    }
-  });
-});
-
-let likeButtons = document.querySelectorAll('.like-btn');
-likeButtons.forEach(function(btn) {
-  btn.addEventListener("click", function() {
-    let current = parseInt(btn.textContent.replace('👍 ', ''));
-    btn.textContent = '👍 ' + (current + 1);
-  });
-});
-
-// Select all posts and the load more button
-let allPosts = document.querySelectorAll('.post-card');
-let loadMoreBtn = document.querySelector('.load-more-btn'); // Changed to querySelector
-
-// How many posts to show at a time
-let visibleCount = 5;
-
-// Hide all posts beyond the first 5
-function updatePosts() {
-  if (!loadMoreBtn) return; // Prevent crashes if element isn't found
-  
-  allPosts.forEach(function(post, index) {
-    if (index < visibleCount) {
-      post.style.display = "block";
-    } else {
-      post.style.display = "none";
-    }
-  });
-  
-  if (visibleCount >= allPosts.length) {
-    loadMoreBtn.style.display = "none";
-  }
-}
-
-// Run on page load
-updatePosts();
-
-// Show more when clicked
-if (loadMoreBtn) {
-  loadMoreBtn.addEventListener("click", function() {
-    visibleCount += 3;
-    updatePosts();
-  });
-}
-      </script>
-      
-    </body>
-    </html>
-=======
-      <script src="community.js"></script>
-      
-    </body>
-    </html>
->>>>>>> 29eb285e88997debff08b6cd27d9d3a00de7fbdf
+    <script src="main.js"></script>
+    <script src="community.js"></script>
+  </body>
+</html>

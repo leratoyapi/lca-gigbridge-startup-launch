@@ -1,12 +1,6 @@
-/* ---- GIGBRIDGE - Contact Page Styles ---- */
-
-/* ---- 1. UTILITY ---- */
-
-.hidden {
+﻿.hidden {
   display: none !important;
 }
-
-/* ---- 2. PAGE LAYOUT ---- */
 
 .contact-wrapper {
   flex: 1;
@@ -15,8 +9,6 @@
   justify-content: center;
   padding: 60px;
 }
-
-/* ---- 3. FORM CARD ---- */
 
 .contact-card {
   width: 100%;
@@ -38,8 +30,6 @@
   margin-bottom: 2rem;
 }
 
-/* ---- 4. FORM GROUPS & LABELS ---- */
-
 .form-group {
   margin-bottom: 20px;
 }
@@ -56,8 +46,6 @@
   color: var(--secondary-text);
   font-weight: 400;
 }
-
-/* ---- 5. INPUTS ---- */
 
 .form-control {
   width: 100%;
@@ -82,8 +70,6 @@
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
 }
 
-/* ---- 6. SELECT ---- */
-
 select.form-control {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b5cf6' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
@@ -98,14 +84,10 @@ select.form-control option {
   color: white;
 }
 
-/* ---- 7. TEXTAREA ---- */
-
 textarea.form-control {
   resize: vertical;
   min-height: 100px;
 }
-
-/* ---- 8. ERROR MESSAGES ---- */
 
 .error-message {
   display: none;
@@ -118,8 +100,6 @@ textarea.form-control {
 .error-message.visible {
   display: block;
 }
-
-/* ---- 9. SUBMIT BUTTON ---- */
 
 .submit-btn {
   width: 100%;
@@ -141,8 +121,6 @@ textarea.form-control {
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
   transform: translateY(-2px);
 }
-
-/* ---- 10. FORM FEEDBACK ---- */
 
 #formFeedback {
   margin-top: 1.2rem;
@@ -168,7 +146,11 @@ textarea.form-control {
   background: rgba(248, 113, 113, 0.06);
 }
 
-/* ---- 11. RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .contact-wrapper {
+    padding: 48px 40px;
+  }
+}
 
 @media (max-width: 768px) {
   .contact-wrapper {
@@ -201,37 +183,9 @@ textarea.form-control {
   .form-control {
     font-size: 0.9rem;
   }
-<<<<<<< HEAD
-}
-=======
-}
 
-/* ---- RESPONSIVE ADDITIONS — contact.css ---- */
-
-/* Tablet landscape */
-@media (max-width: 1024px) {
-  .contact-wrapper {
-    padding: 48px 40px;
-  }
-}
-
-/* Tablet portrait — already covered by your 768px block, no changes needed */
-
-/* Small phone */
-@media (max-width: 380px) {
-  .contact-wrapper {
-    padding: 16px 12px;
-  }
-  .contact-card {
-    padding: 20px 16px;
-    border-radius: 10px;
-  }
-  .contact-card h1 {
-    font-size: 1.3rem;
-  }
   .submit-btn {
     font-size: 0.9rem;
     padding: 11px;
   }
 }
->>>>>>> 29eb285e88997debff08b6cd27d9d3a00de7fbdf

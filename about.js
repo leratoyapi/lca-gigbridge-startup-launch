@@ -3,33 +3,7 @@
 /* ---- GIGBRIDGE - About Page JavaScript ---- */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // ----- 1. THEME TOGGLE -----
-  // Why: Switches between light and dark mode by toggling a class on <html>
-  // - Uses CSS variables defined in :root and .dark-mode
-  // - Persistent state is stored in localStorage
-
-  const themeToggle = document.getElementById("theme-toggle");
-  const html = document.documentElement;
-
-  // Load saved theme preference
-  const savedTheme = localStorage.getItem("gigbridge-theme");
-  if (savedTheme === "dark") {
-    html.classList.add("dark-mode");
-    if (themeToggle) themeToggle.textContent = "☀️ Light Mode";
-  } else {
-    html.classList.remove("dark-mode");
-    if (themeToggle) themeToggle.textContent = "🌙 Dark Mode";
-  }
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      const isDark = html.classList.toggle("dark-mode");
-      this.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
-      localStorage.setItem("gigbridge-theme", isDark ? "dark" : "light");
-    });
-  }
-
-  // ----- 2. FAQ ACCORDION -----
+  // ----- 1. FAQ ACCORDION -----
   // Why: Each FAQ item expands/collapses when clicked
   // - Uses max-height transitions for smooth animations
 

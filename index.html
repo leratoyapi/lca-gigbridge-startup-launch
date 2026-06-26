@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GigBridge - Home</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>GigBridge | Home</title>
+    <!-- removed the css/style.css link it was causing issues -->
+    <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -38,7 +39,10 @@
     <div class="page-wrapper">
       <section class="hero-section">
         <div class="hero-image">
-          <img src="images/workplace2.jpg" alt="People working in the workplace" />
+          <img
+            src="images/workplace2.jpg"
+            alt="People working in the workplace"
+          />
         </div>
 
         <div class="hero-text">
@@ -129,31 +133,8 @@
       <div class="copyright">&copy; 2026 GigBridge. All rights reserved.</div>
     </footer>
 
+    <script src="main.js"></script>
     <script>
-             // Theme Toggle
-     const themeToggle = document.getElementById("theme-toggle");
-
-      // Apply saved preference on load
-     if (localStorage.getItem("theme") === "light") {
-          document.documentElement.setAttribute("data-theme", "light");
-          themeToggle.textContent = "Dark Mode";
-        }
-
-      themeToggle.addEventListener("click", () => {
-          const isLight =
-            document.documentElement.getAttribute("data-theme") === "light";
-  
-          if (isLight) {
-              document.documentElement.removeAttribute("data-theme");
-              themeToggle.textContent = "Light Mode";
-              localStorage.setItem("theme", "dark");
-          } else {
-              document.documentElement.setAttribute("data-theme", "light");
-              themeToggle.textContent = "Dark Mode";
-              localStorage.setItem("theme", "light");
-          }
-      });
-
       // Carousel
       const carouselTrack = document.querySelector(".carousel-track");
       document
