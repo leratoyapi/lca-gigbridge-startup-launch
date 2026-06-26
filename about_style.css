@@ -1,595 +1,509 @@
-/* the updated code  */
-/  ============================================================
-   ABOUT PAGE (OPTIMIZED)
-   ============================================================ */
-
-/* Main Container */
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 60px;
+:root {
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Manrope", sans-serif;
+  --bg-color: #09090f;
+  --card-bg: #14141f;
+  --text-color: #f7f7fb;
+  --secondary-text: #b8b8d0;
+  --border: rgba(139, 92, 246, 0.18);
+  --accent: #8b5cf6;
+  --muted-text: #8e8ea8;
 }
 
-/* ============================================================
-   HEADINGS
-   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 40px;
+  background: var(--card-bg);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.12);
+}
+
+nav .logo img {
+  max-width: 160px;
+  display: block;
+}
+
+nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+nav .nav-links a {
+  color: var(--secondary-text);
+  font-weight: 600;
+}
+
+nav .nav-links a.active,
+nav .nav-links a:hover {
+  color: var(--text-color);
+}
+
+nav .nav-btn a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
+nav .theme-btn button {
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  padding: 10px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+section {
+  margin-bottom: 4rem;
+}
 
 .container h1,
 .container h2 {
-    font-family: var(--font-heading);
-    color: var(--text-color);
-    margin-bottom: 15px;
+  font-family: var(--font-heading);
+  color: var(--text-color);
+  margin-bottom: 15px;
 }
 
 .container h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  line-height: 1.05;
 }
 
 .container h2 {
-    font-size: 2.3rem;
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
 }
 
 .container p {
-    line-height: 1.8;
-    color: var(--secondary-text);
+  line-height: 1.8;
+  color: var(--secondary-text);
 }
 
-/* ============================================================
-   TEAM SECTION
-   ============================================================ */
-
 .carousel-container {
-    margin-top: 35px;
-    overflow: hidden;
-    /* FIX #5: Add will-change hint for better performance */
-    will-change: scroll-position;
+  margin-top: 35px;
+  overflow: hidden;
 }
 
 .carousel-track {
-    display: flex;
-    gap: 25px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-    scroll-behavior: smooth;
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
 }
 
-/* Hide scrollbar */
 .carousel-track::-webkit-scrollbar {
-    height: 8px;
+  height: 8px;
 }
 
 .carousel-track::-webkit-scrollbar-thumb {
-    background: #8B5CF6;
-    border-radius: 20px;
+  background: #8b5cf6;
+  border-radius: 20px;
 }
 
-/* Team Cards */
 .team-card {
-    min-width: 280px;
-    background-color: var(--card-bg);
-    border: 1px solid rgba(139,92,246,0.18);
-    border-radius: 18px;
-    padding: 30px;
-    text-align: center;
-    transition: all 0.3s ease;
-    /* FIX #6: Optimize hover performance with will-change */
-    will-change: transform;
+  flex: 0 0 280px;
+
+  background-color: var(--card-bg);
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .team-card:hover {
-    transform: translateY(-8px);
-    border-color: #8B5CF6;
-    /* FIX #6: Use simpler shadow to reduce computation */
-    box-shadow: 0 0 15px rgba(139,92,246,0.25);
+  transform: translateY(-8px);
+  border-color: #8b5cf6;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
 }
 
-/* Avatar */
 .avatar-placeholder {
-    width: 85px;
-    height: 85px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(139,92,246,0.15);
-    border: 2px solid #8B5CF6;
-    color: #A78BFA;
-    font-size: 1.4rem;
-    font-weight: 700;
+  width: 85px;
+  height: 85px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.15);
+  border: 2px solid #8b5cf6;
+  color: #a78bfa;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
-/* Team Name */
 .team-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
 }
 
-/* Role Badge */
 .team-role {
-    display: inline-block;
-    margin-bottom: 15px;
-    color: #A78BFA;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #a78bfa;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-/* Bio */
 .team-bio {
-    font-size: 0.9rem;
-    min-height: 90px;
+  font-size: 0.9rem;
+  min-height: 90px;
+  color: var(--secondary-text);
 }
 
-/* LinkedIn */
 .team-role a {
-    color: #8B5CF6;
-    text-decoration: none;
-    transition: 0.3s ease;
+  color: #8b5cf6;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .team-role a:hover {
-    color: white;
+  color: white;
 }
 
-/* Carousel Hint */
 .carousel-hint {
-    display: block;
-    margin-top: 15px;
-    color: var(--secondary-text);
-    text-align: center;
+  display: block;
+  margin-top: 15px;
+  color: var(--secondary-text);
+  text-align: center;
 }
-
-/* ============================================================
-   FAQ ACCORDION (OPTIMIZED)
-   ============================================================ */
 
 .accordion-item {
-    background-color: var(--card-bg);
-    border: 1px solid rgba(139,92,246,0.15);
-    border-radius: 14px;
-    margin-bottom: 15px;
-    overflow: hidden;
-    transition: 0.3s ease;
+  background-color: var(--card-bg);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 14px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
 }
 
 .accordion-item:hover {
-    border-color: #8B5CF6;
+  border-color: #8b5cf6;
 }
 
-/* Question Button */
 .accordion-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 25px;
-    background: transparent;
-    border: none;
-    color: var(--text-color);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .accordion-header span {
-    font-size: 1.5rem;
-    color: #8B5CF6;
+  font-size: 1.5rem;
+  color: #8b5cf6;
 }
 
-/* Answer */
 .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    padding: 0 25px;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.4s ease,
+    padding 0.3s ease;
+  padding: 0 25px;
 }
 
 .accordion-content.active {
-    max-height: 500px; /* FIX: Set a reasonable max-height for active state */
+  max-height: 500px;
+  padding: 18px 25px 20px;
 }
 
 .accordion-content p {
-    padding-bottom: 20px;
-    margin: 0;
+  padding-bottom: 20px;
+  margin: 0;
+  color: var(--secondary-text);
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media(max-width:768px) {
-    .container {
-        padding: 30px 20px;
-    }
-
-    .container h1 {
-        font-size: 2.5rem;
-    }
-
-    .container h2 {
-        font-size: 1.8rem;
-    }
-
-    .team-card {
-        min-width: 240px;
-    }
+.footer {
+  padding: 24px 40px;
+  background: var(--card-bg);
+  border-top: 1px solid rgba(139, 92, 246, 0.15);
+  color: var(--secondary-text);
+  text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* the original code  */
-
-/* /* ============================================================
-   ABOUT PAGE
-   ============================================================ */
-
-/* Main Container */
-/* .container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 60px;
+.footer p {
+  margin: 8px 0;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 20px;
+  }
 
-/* ============================================================
-   HEADINGS
-   ============================================================ */
+  .container h1 {
+    font-size: 2.5rem;
+  }
 
-/* .container h1,
-.container h2 {
-    font-family: var(--font-heading);
-    color: var(--text-color);
-    margin-bottom: 15px;
+  .container h2 {
+    font-size: 1.8rem;
+  }
+
+  .team-card {
+    min-width: 240px;
+  }
 }
 
-.container h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
+/* media queries overrides */
+
+/* ============================================
+   ABOUT PAGE — OVERFLOW & RESPONSIVE FIXES
+   Add these to the bottom of about_style.css
+   ============================================ */
+
+/* Force nothing to bleed past the viewport */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.container h2 {
-    font-size: 2.3rem;
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
+/* Fix nav width — was causing full page bleed */
+nav {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fix mission text — inline max-width: 1850px was overflowing */
 .container p {
-    line-height: 1.8;
-    color: var(--secondary-text);
-} */
+  max-width: 100% !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
-
-/* ============================================================
-   TEAM SECTION
-   ============================================================ */
-
-/* .carousel-container {
-    margin-top: 35px;
-    overflow: hidden;
+/* Keep team carousel scrollable inside its box only */
+.carousel-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .carousel-track {
-    display: flex;
-    gap: 25px;
-    overflow-x: auto;
-    padding-bottom: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
 
-    scroll-behavior: smooth;
-} */
+  width: 100%;
 
+  overflow-x: auto;
+  overflow-y: hidden;
 
-/* Hide scrollbar */
-/* .carousel-track::-webkit-scrollbar {
-    height: 8px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
-.carousel-track::-webkit-scrollbar-thumb {
-    background: #8b5cf6;
-    border-radius: 20px;
-}
- */
-
-/* Team Cards */
-
-/* .team-card {
-
-    min-width: 280px;
-
-    background-color: var(--card-bg);
-
-    border: 1px solid rgba(139,92,246,0.18);
-
-    border-radius: 18px;
-
-    padding: 30px;
-
-    text-align: center;
-
-    transition: all 0.3s ease;
-
+/* Accordion items must not overflow */
+.accordion-item {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-
-.team-card:hover {
-
-    transform: translateY(-8px);
-
-    border-color: #8b5cf6;
-
-    box-shadow:
-    0 0 20px rgba(139,92,246,0.3);
-
-} */
-
-
-
-/* Avatar */
-
-/* .avatar-placeholder {
-
-    width: 85px;
-    height: 85px;
-
-    margin: 0 auto 20px;
-
-    border-radius: 50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-
-    background:
-    rgba(139,92,246,0.15);
-
-
-    border:2px solid #8b5cf6;
-
-
-    color:#a78bfa;
-
-    font-size:1.4rem;
-
-    font-weight:700;
-
-} */
-
-
-/* Team Name */
-
-/* .team-card h3 {
-
-    font-size:1.25rem;
-
-    margin-bottom:12px;
-
-}
- */
-
-
-/* Role Badge */
-
-/* .team-role {
-
-    display:inline-block;
-
-    margin-bottom:15px;
-
-    color:#a78bfa;
-
-    font-size:0.8rem;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase; */
-
+.accordion-header {
+  box-sizing: border-box;
+  width: 100%;
+  word-wrap: break-word;
 }
 
-
-/* Bio */
-
-/* .team-bio {
-
-    font-size:0.9rem;
-
-    min-height:90px;
-
-} */
-
-
-
-/* LinkedIn */
-
-/* .team-role a {
-
-    color:#8b5cf6;
-
-    text-decoration:none;
-
-    transition:0.3s ease;
-
+.accordion-content {
+  box-sizing: border-box;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-
-.team-role a:hover {
-
-    color:white;
-
-} */
-
-
-
-/* Carousel Hint */
-
-/* .carousel-hint {
-
-    display:block;
-
-    margin-top:15px;
-
-    color:var(--secondary-text);
-
-    text-align:center;
-
-} */
-
-
-
-/* ============================================================
-   FAQ ACCORDION
-   ============================================================ */
-
-
-/* .accordion-item {
-
-    background-color:var(--card-bg);
-
-    border:1px solid rgba(139,92,246,0.15);
-
-    border-radius:14px;
-
-    margin-bottom:15px;
-
-    overflow:hidden;
-
-    transition:0.3s ease;
-
-}
-
-
-
-.accordion-item:hover {
-
-    border-color:#8b5cf6;
-
-} */
-
-
-
-/* Question Button */
-
-/* .accordion-header {
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-
-    padding:20px 25px;
-
-
-    background:transparent;
-
-    border:none;
-
-
-    color:var(--text-color);
-
-    font-family:var(--font-body);
-
-    font-size:1rem;
-
-    font-weight:600;
-
-
-    cursor:pointer;
-
-}
-
-
-
-.accordion-header span {
-
-    font-size:1.5rem;
-
-    color:#8b5cf6;
-
-} */
-
-
-
-/* Answer */
-
-/* .accordion-content {
-
-    max-height:0;
-
-    overflow:hidden;
-
-    transition:max-height 0.4s ease;
-
-    padding:0 25px;
-
-}
-
-
-
-.accordion-content p {
-
-    padding-bottom:20px;
-
-    margin:0;
-
-} */
-
-
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-
-/* @media(max-width:768px){
-
-
+/* Container must stay within viewport */
 .container {
-
-    padding:30px 20px;
-
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
+/* ============================================
+   ABOUT PAGE — MOBILE (≤768px)
+   ============================================ */
 
-.container h1 {
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px;
+  }
 
-    font-size:2.5rem;
+  .container h1 {
+    font-size: 2rem;
+  }
 
+  .container h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Nav: same grid layout as all other pages */
+  nav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 6px 12px;
+    justify-content: unset;
+  }
+
+  nav .logo {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  nav .logo img {
+    max-width: 90px;
+  }
+
+  nav .nav-burger {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 4px;
+  }
+
+  nav .nav-burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #8b5cf6;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  nav .nav-burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  nav .nav-burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  nav .nav-burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  nav .nav-btn {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    margin-left: 0;
+  }
+
+  nav .nav-btn a {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  nav .theme-btn {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  nav .theme-btn button {
+    font-size: 0.75rem;
+    padding: 5px 9px;
+  }
+
+  nav .nav-links {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    max-height: 0;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
+    padding: 0;
+    width: 100%;
+  }
+
+  nav .nav-links.active {
+    max-height: 300px;
+    padding: 8px 0 4px;
+  }
+
+  nav .nav-links a {
+    font-size: 0.875rem;
+    padding: 10px 4px;
+    width: 100%;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+  }
+
+  nav .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .team-card {
+    flex: 0 0 220px;
+  }
+
+  .accordion-header {
+    font-size: 0.9rem;
+    padding: 16px 18px;
+  }
 }
-
-
-.container h2 {
-
-    font-size:1.8rem;
-
-}
-
-
-.team-card {
-
-    min-width:240px;
-
-}
-
-
-} */ */ */
