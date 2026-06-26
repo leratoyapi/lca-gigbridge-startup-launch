@@ -20,6 +20,12 @@
         <img src="images/logo.png" alt="GigBridge Logo" class="logo-img" />
       </div>
 
+      <button class="nav-burger" id="nav-burger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="opportunities.html" class="active">Opportunities</a>
@@ -641,6 +647,16 @@
             }
           });
         });
+        // --- 4. MOBILE BURGER MENU ---
+        const burger = document.getElementById("nav-burger");
+        const navLinks = document.querySelector("nav .nav-links");
+
+        if (burger && navLinks) {
+          burger.addEventListener("click", () => {
+            burger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+          });
+        }
       });
     </script>
   </body>
