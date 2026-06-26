@@ -3,10 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GigBridge - Opportunities</title>
+    <title>GigBridge | Opportunities</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- removed the script.js and used the updated version main.js -->
+    <script src="main.js" defer></script>
   </head>
   <body>
     <!-- NAVBAR -->
@@ -15,12 +20,18 @@
         <img src="images/logo.png" alt="GigBridge Logo" class="logo-img" />
       </div>
 
+      <button class="nav-burger" id="nav-burger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="opportunities.html" class="active">Opportunities</a>
         <a href="community.html">Community</a>
         <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">Join Us</a>
       </div>
 
       <div class="nav-btn">
@@ -565,25 +576,29 @@
       <div class="copyright">&copy; 2026 GigBridge. All rights Reserved</div>
     </footer>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-
+      document.addEventListener("DOMContentLoaded", () => {
         // --- 1. CATEGORY FILTER BUTTONS ---
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const jobCards = document.querySelectorAll('.opportunity-card');
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const jobCards = document.querySelectorAll(".opportunity-card");
 
-        filterButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            document.querySelector('.filter-btn.active').classList.remove('active');
-            button.classList.add('active');
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            document
+              .querySelector(".filter-btn.active")
+              .classList.remove("active");
+            button.classList.add("active");
 
-            const selectedCategory = button.getAttribute('data-target');
+            const selectedCategory = button.getAttribute("data-target");
 
-            jobCards.forEach(card => {
-              const cardCategory = card.getAttribute('data-category');
-              if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-                card.classList.remove('hidden');
+            jobCards.forEach((card) => {
+              const cardCategory = card.getAttribute("data-category");
+              if (
+                selectedCategory === "all" ||
+                cardCategory === selectedCategory
+              ) {
+                card.classList.remove("hidden");
               } else {
-                card.classList.add('hidden');
+                card.classList.add("hidden");
               }
             });
           });
@@ -592,50 +607,46 @@
         // --- 2. SHOW MORE / SHOW LESS TOGGLE ---
         // Fix: btn.parentElement is the card itself (show-more-btn is a direct
         // child of .opportunity-card), so query .extended-details from the card.
-        const showMoreButtons = document.querySelectorAll('.show-more-btn');
+        const showMoreButtons = document.querySelectorAll(".show-more-btn");
 
-        showMoreButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            const card = btn.closest('.opportunity-card');
-            const detailsSection = card.querySelector('.extended-details');
+        showMoreButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const card = btn.closest(".opportunity-card");
+            const detailsSection = card.querySelector(".extended-details");
 
-            detailsSection.classList.toggle('open');
-            btn.textContent = detailsSection.classList.contains('open')
-              ? 'Show less'
-              : 'Show more';
+            detailsSection.classList.toggle("open");
+            btn.textContent = detailsSection.classList.contains("open")
+              ? "Show less"
+              : "Show more";
           });
         });
 
         // --- 3. SEARCH BAR ---
-        const searchInput = document.getElementById('searchInput');
+        const searchInput = document.getElementById("searchInput");
 
-        searchInput.addEventListener('input', (e) => {
+        searchInput.addEventListener("input", (e) => {
           const query = e.target.value.toLowerCase().trim();
 
-          document.querySelector('.filter-btn.active').classList.remove('active');
-          filterButtons[0].classList.add('active');
+          document
+            .querySelector(".filter-btn.active")
+            .classList.remove("active");
+          filterButtons[0].classList.add("active");
 
-          jobCards.forEach(card => {
-            const title = card.querySelector('.card-title').textContent.toLowerCase();
-            const body = card.querySelector('.card-body-text').textContent.toLowerCase();
+          jobCards.forEach((card) => {
+            const title = card
+              .querySelector(".card-title")
+              .textContent.toLowerCase();
+            const body = card
+              .querySelector(".card-body-text")
+              .textContent.toLowerCase();
 
             if (title.includes(query) || body.includes(query)) {
-              card.classList.remove('hidden');
+              card.classList.remove("hidden");
             } else {
-              card.classList.add('hidden');
+              card.classList.add("hidden");
             }
           });
         });
-
-        // --- 4. THEME TOGGLE ---
-        const themeBtn = document.getElementById('theme-toggle');
-
-        themeBtn.addEventListener('click', () => {
-          const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-          document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
-          themeBtn.textContent = isLight ? 'Light Mode' : 'Dark Mode';
-        });
-
       });
     </script>
   </body>
