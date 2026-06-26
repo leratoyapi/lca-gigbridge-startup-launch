@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GigBridge - Home</title>
+    <title>GigBridge | Home</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
@@ -14,8 +14,14 @@
     <!-- NAVBAR -->
     <nav>
       <div class="logo">
-        <img src="img/logo.png" alt="GigBridge Logo" class="logo-img" />
+        <img src="images/logo.png" alt="GigBridge Logo" class="logo-img" />
       </div>
+
+      <button class="nav-burger" id="nav-burger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       <div class="nav-links">
         <a href="index.html" class="nav-link active">Home</a>
@@ -38,7 +44,10 @@
     <div class="page-wrapper">
       <section class="hero-section">
         <div class="hero-image">
-          <img src="img/workplace2.jpg" alt="People working in the workplace" />
+          <img
+            src="images/workplace2.jpg"
+            alt="People working in the workplace"
+          />
         </div>
 
         <div class="hero-text">
@@ -129,32 +138,9 @@
       <div class="copyright">&copy; 2026 GigBridge. All rights reserved.</div>
     </footer>
 
+    <script src="main.js"></script>
     <script>
-      // Theme Toggle
-      const themeToggle = document.getElementById("theme-toggle");
-
-      // Apply saved preference on load
-      if (localStorage.getItem("theme") === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
-        themeToggle.textContent = "Dark Mode";
-      }
-
-      themeToggle.addEventListener("click", () => {
-        const isLight =
-          document.documentElement.getAttribute("data-theme") === "light";
-
-        if (isLight) {
-          document.documentElement.removeAttribute("data-theme");
-          themeToggle.textContent = "Light Mode";
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.documentElement.setAttribute("data-theme", "light");
-          themeToggle.textContent = "Dark Mode";
-          localStorage.setItem("theme", "light");
-        }
-      });
-
-      // Carousel
+      // Carousel only — burger is already handled by main.js
       const carouselTrack = document.querySelector(".carousel-track");
       document
         .querySelector(".carousel-control.prev")
