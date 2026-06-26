@@ -158,3 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// --- MOBILE BURGER MENU ---
+const burger = document.getElementById("nav-burger");
+const navLinks = document.querySelector("nav .nav-links");
+
+if (burger && navLinks) {
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  });
+}
